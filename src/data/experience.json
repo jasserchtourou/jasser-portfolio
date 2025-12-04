@@ -1,0 +1,132 @@
+{
+  "experience": [
+    {
+      "company": "AiNext GmbH",
+      "position": "AI Engineer",
+      "period": "2023 - Present",
+      "location": "Germany",
+      "description": "Leading RAG and NLP projects, building production-ready AI systems for enterprise clients. Specializing in scalable RAG pipelines, LLM operations, and vector database optimization.",
+      "achievements": [
+        "Developed and deployed RAG pipelines processing 100K+ documents with 99.5% reliability",
+        "Built surgical RAG chatbot achieving 95% accuracy and handling 10K+ concurrent queries",
+        "Optimized LLM inference reducing costs by 40% through model quantization and caching",
+        "Led team of 3 AI engineers on multiple enterprise projects",
+        "Achieved 91% uptime across all production systems",
+        "Processed 1M+ data points per day in production environment"
+      ],
+      "technologies": ["Python", "LangChain", "OpenAI", "PgVector", "Weaviate", "FastAPI", "Docker", "Kubernetes", "PostgreSQL", "Redis"],
+      "projects": [
+        "Surgical RAG Chatbot",
+        "Market Intelligence AI",
+        "Production RAG Pipelines"
+      ]
+    },
+    {
+      "company": "Plug&Plai",
+      "position": "AI Engineer Intern",
+      "period": "2022 - 2023",
+      "location": "Remote",
+      "description": "Developed a complete Knowledge Base Management System for voice assistants using RAG, automated release notes generation, and gap identification. Built from scratch with Upstage vector database, GPT-4, and FastAPI to improve voice bot accuracy and automate knowledge management.",
+      "achievements": [
+        "Built complete Knowledge Base System with RAG engine for voice assistants",
+        "Implemented automated release notes generation from video transcripts using GPT-4",
+        "Developed knowledge base gap identification system to track unanswered queries",
+        "Created client-specific namespaces ensuring only approved content is indexed",
+        "Improved voice bot accuracy by providing centralized knowledge database",
+        "Automated release notes integration into RAG database for continuous enrichment",
+        "Built from scratch using Upstage managed vector database and FastAPI",
+        "Enabled multiple input sources: PDF upload, URL scraping, and blank documents"
+      ],
+      "technologies": ["Python", "RAG", "GPT-4", "FastAPI", "Upstage Vector DB", "LangChain", "OpenAI", "React", "Docker"],
+      "projects": [
+        "Knowledge Base Management System",
+        "Automated Release Notes Generator",
+        "Knowledge Base Gap Identification",
+        "RAG-Powered Voice Assistant Enhancement"
+      ],
+      "hasVideo": true,
+      "videoLink": "https://www.linkedin.com/posts/jasser-chtourou_engineering-automation-ai-activity-7356634435653353474-wuqF",
+      "featuredProject": {
+        "title": "Knowledge Base Management System",
+        "description": "Complete RAG-powered knowledge base system that improves voice assistant performance by providing accurate answers, tracking missing information, and automatically updating itself through release notes integration.",
+        "features": [
+          "Knowledge Base Creation (PDF, URL, or blank documents)",
+          "Automated Release Notes from video transcripts",
+          "Knowledge Base Gap Identification and tracking",
+          "RAG engine with client-specific namespaces",
+          "GPT-4 powered release notes generation"
+        ]
+      }
+    },
+    {
+      "company": "VALUE Digital Services",
+      "position": "AI/ML Engineer",
+      "period": "2021 - 2022",
+      "location": "Tunisia",
+      "description": "Developed machine learning solutions for business intelligence and data analytics. Specialized in time series forecasting, financial modeling, and classical ML implementations.",
+      "achievements": [
+        "Built time series forecasting models for financial data with 92% accuracy",
+        "Developed intelligent trading agent with RL achieving 25% annual return",
+        "Created ML pipelines for production deployment with 99% uptime",
+        "Improved model accuracy by 20% through feature engineering",
+        "Processed 1M+ network events daily for intrusion detection system",
+        "Deployed 20+ ML models to production"
+      ],
+      "technologies": ["Python", "Scikit-learn", "PyTorch", "Pandas", "NumPy", "Django", "FastAPI", "XGBoost"],
+      "projects": [
+        "FRED Time Series Modeling",
+        "Intelligent Trading Agent",
+        "Intrusion Detection System",
+        "Classical ML Models"
+      ]
+    },
+    {
+      "company": "VERMEG",
+      "position": "Software Engineer",
+      "period": "2020 - 2021",
+      "location": "Tunisia",
+      "description": "Full-stack development with focus on web applications and backend systems. Built scalable RESTful APIs and implemented CI/CD pipelines.",
+      "achievements": [
+        "Developed web applications using Angular and Django",
+        "Built RESTful APIs serving 10K+ requests/day",
+        "Implemented CI/CD pipelines reducing deployment time by 50%",
+        "Collaborated with international teams on enterprise projects",
+        "Improved application performance by 35% through optimization"
+      ],
+      "technologies": ["Angular", "Django", "PostgreSQL", "Docker", "JavaScript", "TypeScript", "Python"],
+      "projects": [
+        "Enterprise Web Applications",
+        "RESTful API Development"
+      ]
+    }
+  ],
+  "education": [
+    {
+      "institution": "Private Higher School of Engineering and Technology",
+      "degree": "Data Science Engineer",
+      "period": "2016 - 2024",
+      "location": "Tunisia",
+      "description": "Graduated with Highest Honors and Jury Congratulations (19/20). Specialized in Data Science, Artificial Intelligence, Machine Learning, and Software Engineering.",
+      "achievements": [
+        "Highest Honors (19/20)",
+        "Jury Congratulations",
+        "Specialized in AI and Data Science",
+        "Completed AI internship at Plug & Plai in Stuttgart, Germany"
+      ]
+    }
+  ],
+  "languages": [
+    {
+      "name": "English",
+      "level": "Fluent"
+    },
+    {
+      "name": "French",
+      "level": "Fluent"
+    },
+    {
+      "name": "Arabic",
+      "level": "Native"
+    }
+  ]
+}
