@@ -1,128 +1,109 @@
 {
   "skills": {
-    "rag-nlp": {
-      "name": "RAG & NLP",
+    "llm-systems": {
+      "name": "LLM & Agent Systems",
       "color": "#FF0033",
       "skills": [
-        "RAG (Retrieval-Augmented Generation)",
+        "LangGraph",
         "LangChain",
-        "LLM Ops",
-        "Vector Databases (PgVector, Weaviate, ChromaDB)",
-        "NLP",
-        "Text Processing",
-        "Embeddings",
-        "Semantic Search",
-        "Document Chunking",
-        "Query Optimization"
+        "LangSmith",
+        "RAG architectures",
+        "Multi-agent orchestration",
+        "Prompt engineering",
+        "Azure OpenAI",
+        "LlamaIndex"
       ],
-      "tools": ["LangChain", "OpenAI", "PgVector", "Weaviate", "ChromaDB", "Hugging Face", "FAISS"],
+      "tools": ["Python", "FastAPI", "Azure OpenAI", "LangGraph", "LangChain", "pgvector", "Pinecone", "Weaviate", "ChromaDB"],
+      "experience": "4+ years",
+      "projects": 3
+    },
+    "backend-systems": {
+      "name": "Backend & Integration",
+      "color": "#D00025",
+      "skills": [
+        "FastAPI",
+        "Django REST Framework",
+        "REST API design",
+        "Async systems",
+        "Celery",
+        "Redis",
+        "PostgreSQL",
+        "Kafka",
+        "OAuth2",
+        "ETL pipelines"
+      ],
+      "tools": ["Python", "FastAPI", "Django", "Celery", "Redis", "PostgreSQL", "Kafka", "Docker", "GitHub Actions"],
+      "experience": "4+ years",
+      "projects": 4
+    },
+    "data-engineering": {
+      "name": "Data Engineering & ML",
+      "color": "#FF2E63",
+      "skills": [
+        "ETL",
+        "Data cleaning",
+        "Feature engineering",
+        "Classification",
+        "Regression",
+        "Clustering",
+        "Prediction",
+        "Computer vision",
+        "PyTorch",
+        "TensorFlow"
+      ],
+      "tools": ["Python", "Pandas", "NumPy", "PyTorch", "TensorFlow", "OpenCV", "scikit-learn"],
+      "experience": "4+ years",
+      "projects": 3
+    },
+    "cloud-devops": {
+      "name": "Cloud & DevOps",
+      "color": "#C21833",
+      "skills": [
+        "Docker",
+        "Docker Compose",
+        "CI/CD",
+        "Kubernetes",
+        "AWS",
+        "Azure",
+        "Google Cloud",
+        "Observability",
+        "Automation"
+      ],
+      "tools": ["Docker", "Kubernetes", "GitHub Actions", "Prometheus", "n8n", "Make", "Zapier"],
       "experience": "3+ years",
       "projects": 3
     },
-    "voice-ai": {
-      "name": "Voice AI",
-      "color": "#D00025",
-      "skills": [
-        "Speech Recognition",
-        "Voice Synthesis",
-        "Conversational AI",
-        "Real-time Audio Processing",
-        "Whisper",
-        "WebRTC",
-        "Multi-language Support",
-        "Voice Activity Detection"
-      ],
-      "tools": ["Whisper", "OpenAI", "WebRTC", "PyAudio", "SpeechRecognition", "DeepSpeech"],
-      "experience": "2+ years",
-      "projects": 2
-    },
-    "computer-vision": {
-      "name": "Computer Vision",
-      "color": "#FF2E63",
-      "skills": [
-        "Object Detection",
-        "Image Segmentation",
-        "Mask R-CNN",
-        "Remote Sensing",
-        "Image Classification",
-        "Deep Learning",
-        "Domain Adaptation",
-        "Transfer Learning"
-      ],
-      "tools": ["PyTorch", "TensorFlow", "Detectron2", "OpenCV", "YOLO", "MMDetection"],
-      "experience": "2+ years",
-      "projects": 2
-    },
-    "time-series": {
-      "name": "Time Series",
-      "color": "#C21833",
-      "skills": [
-        "Time Series Forecasting",
-        "LSTM",
-        "Transformers",
-        "Prophet",
-        "Financial Modeling",
-        "Trading Algorithms",
-        "Reinforcement Learning",
-        "ARIMA"
-      ],
-      "tools": ["PyTorch", "TensorFlow", "Prophet", "Pandas", "NumPy", "Statsmodels"],
-      "experience": "2+ years",
-      "projects": 2
-    },
-    "ml-data": {
-      "name": "ML & Data",
-      "color": "#8B0000",
-      "skills": [
-        "Machine Learning",
-        "Deep Learning",
-        "Classical ML (GMM, KNN, Decision Trees)",
-        "Anomaly Detection",
-        "Data Processing",
-        "Feature Engineering",
-        "Ensemble Methods",
-        "Model Optimization"
-      ],
-      "tools": ["Scikit-learn", "XGBoost", "LightGBM", "Pandas", "NumPy", "TensorFlow", "PyTorch"],
-      "experience": "4+ years",
-      "projects": 2
-    },
-    "web-tools": {
-      "name": "Web & Tools",
+    "frontend": {
+      "name": "Frontend & Tools",
       "color": "#FF5E5E",
       "skills": [
-        "Next.js",
         "React",
-        "Angular",
-        "Django",
-        "FastAPI",
-        "Streamlit",
-        "Dash",
-        "Docker",
-        "Kubernetes",
-        "CI/CD",
-        "DevOps"
+        "TypeScript",
+        "Tailwind CSS",
+        "Next.js",
+        "REST integrations",
+        "UI development"
       ],
-      "tools": ["Next.js", "React", "Angular", "Django", "FastAPI", "Docker", "Kubernetes", "GitHub Actions"],
-      "experience": "4+ years",
-      "projects": 1
+      "tools": ["React", "TypeScript", "Next.js", "Tailwind CSS", "Postman"],
+      "experience": "2+ years",
+      "projects": 2
     }
   },
   "core": {
-    "name": "Jasser AI Core",
-    "description": "AI Engineer specializing in RAG, NLP, Voice AI, Computer Vision, and Time Series. Building production-ready AI systems with focus on scalability, performance, and reliability. Experienced in leading teams and delivering enterprise-grade solutions.",
+    "name": "Jasser Chtourou",
+    "description": "Backend and AI Engineer building production systems and LLM-powered pipelines.",
     "contact": {
-      "email": "jasser278@gmail.com",
-      "linkedin": "https://linkedin.com/in/jasser-chtourou",
-      "github": "https://github.com/jasserchtourou"
+      "email": "jasser.chtourou@web.de",
+      "linkedin": "https://www.linkedin.com/in/jasser-chtourou",
+      "github": "https://github.com/jasserchtourou",
+      "medium": "https://medium.com/@jasser278"
     },
-    "summary": "Recently graduated as a Data Science Engineer with Highest Honors and Jury Congratulations (19/20) from the Private Higher School of Engineering and Technology (Tunisia), following my AI internship at Plug & Plai in Stuttgart, Germany. Passionate AI engineer with expertise in building scalable, production-ready AI systems. Specialized in RAG pipelines, NLP, voice AI, computer vision, and time series forecasting. Experienced in leading teams and delivering enterprise-grade solutions with proven track record of high uptime (91%+), processing 1M+ data points per day, and achieving significant performance improvements across multiple projects.",
+    "summary": "Backend and AI Engineer with 4+ years of experience building production systems, from Django/PostgreSQL platforms to LLM-powered multi-agent pipelines. Master's-equivalent education in AI and Data Science Engineering. Experienced in designing and owning services end-to-end, including API development, data pipelines, asynchronous processing, and integrating LLMs into production workflows.",
     "metrics": {
-      "totalProjects": 12,
       "yearsExperience": "4+",
-      "productionUptime": "91%+",
+      "productionUptime": "99%+",
       "dataPointsPerDay": "1M+",
-      "technologies": 50
+      "technologies": 35
     }
   }
 }

@@ -2,131 +2,121 @@
   "experience": [
     {
       "company": "AiNext GmbH",
-      "position": "AI Engineer",
-      "period": "2023 - Present",
-      "location": "Germany",
-      "description": "Leading RAG and NLP projects, building production-ready AI systems for enterprise clients. Specializing in scalable RAG pipelines, LLM operations, and vector database optimization.",
+      "position": "AI Backend Engineer",
+      "period": "01/2025 – 09/2025",
+      "location": "Munich (Remote), Germany",
+      "description": "Owned a multi-agent incident response system end-to-end, from RAG pipeline design to deployment, for automated root-cause analysis.",
       "achievements": [
-        "Developed and deployed RAG pipelines processing 100K+ documents with 99.5% reliability",
-        "Built surgical RAG chatbot achieving 95% accuracy and handling 10K+ concurrent queries",
-        "Optimized LLM inference reducing costs by 40% through model quantization and caching",
-        "Led team of 3 AI engineers on multiple enterprise projects",
-        "Achieved 91% uptime across all production systems",
-        "Processed 1M+ data points per day in production environment"
+        "Built a multi-agent incident response system with five parallel LLM agents for anomaly detection and mitigation recommendations",
+        "Designed RAG pipelines using LLMs, vector databases, and embeddings for automated root-cause analysis",
+        "Built a FastAPI backend with Celery, Redis, and PostgreSQL for asynchronous task orchestration",
+        "Integrated self-hosted LLaMA 3.3 70B for low-latency inference and reduced cost"
       ],
-      "technologies": ["Python", "LangChain", "OpenAI", "PgVector", "Weaviate", "FastAPI", "Docker", "Kubernetes", "PostgreSQL", "Redis"],
-      "projects": [
-        "Surgical RAG Chatbot",
-        "Market Intelligence AI",
-        "Production RAG Pipelines"
-      ]
+      "technologies": ["Python", "FastAPI", "Celery", "Redis", "PostgreSQL", "LangChain", "LangGraph", "RAG", "Llama 3.3", "Azure OpenAI"],
+      "projects": ["Incident Response System", "Multi-Agent RAG Pipeline"]
     },
     {
       "company": "Plug&Plai",
       "position": "AI Engineer Intern",
-      "period": "2022 - 2023",
-      "location": "Remote",
-      "description": "Developed a complete Knowledge Base Management System for voice assistants using RAG, automated release notes generation, and gap identification. Built from scratch with Upstage vector database, GPT-4, and FastAPI to improve voice bot accuracy and automate knowledge management.",
+      "period": "03/2025 – 09/2025",
+      "location": "Stuttgart, Germany",
+      "description": "Developed Plug&Chat, a multi-tenant RAG system enabling per-client knowledge isolation and semantic retrieval with source traceability.",
       "achievements": [
-        "Built complete Knowledge Base System with RAG engine for voice assistants",
-        "Implemented automated release notes generation from video transcripts using GPT-4",
-        "Developed knowledge base gap identification system to track unanswered queries",
-        "Created client-specific namespaces ensuring only approved content is indexed",
-        "Improved voice bot accuracy by providing centralized knowledge database",
-        "Automated release notes integration into RAG database for continuous enrichment",
-        "Built from scratch using Upstage managed vector database and FastAPI",
-        "Enabled multiple input sources: PDF upload, URL scraping, and blank documents"
+        "Built Plug&Chat, a multi-tenant RAG system using LangChain and pgvector",
+        "Designed and integrated voice interaction features into the assistant",
+        "Built REST APIs exposing RAG and NLP functionality for downstream integration",
+        "Followed responsible-AI review practices for explainability and compliance"
       ],
-      "technologies": ["Python", "RAG", "GPT-4", "FastAPI", "Upstage Vector DB", "LangChain", "OpenAI", "React", "Docker"],
-      "projects": [
-        "Knowledge Base Management System",
-        "Automated Release Notes Generator",
-        "Knowledge Base Gap Identification",
-        "RAG-Powered Voice Assistant Enhancement"
-      ],
-      "hasVideo": true,
-      "videoLink": "https://www.linkedin.com/posts/jasser-chtourou_engineering-automation-ai-activity-7356634435653353474-wuqF",
+      "technologies": ["Python", "LangChain", "pgvector", "FastAPI", "RAG", "Voice Interaction", "REST APIs"],
+      "projects": ["Plug&Chat", "Voice-enabled Assistant"],
+      "hasVideo": false,
       "featuredProject": {
-        "title": "Knowledge Base Management System",
-        "description": "Complete RAG-powered knowledge base system that improves voice assistant performance by providing accurate answers, tracking missing information, and automatically updating itself through release notes integration.",
+        "title": "Plug&Chat",
+        "description": "A multi-tenant RAG system with per-client knowledge isolation, semantic retrieval, source traceability, and voice interaction features.",
         "features": [
-          "Knowledge Base Creation (PDF, URL, or blank documents)",
-          "Automated Release Notes from video transcripts",
-          "Knowledge Base Gap Identification and tracking",
-          "RAG engine with client-specific namespaces",
-          "GPT-4 powered release notes generation"
+          "Per-client knowledge isolation",
+          "Semantic retrieval with source traceability",
+          "Voice interaction integration",
+          "REST APIs for downstream applications"
         ]
       }
     },
     {
-      "company": "VALUE Digital Services",
-      "position": "AI/ML Engineer",
-      "period": "2021 - 2022",
-      "location": "Tunisia",
-      "description": "Developed machine learning solutions for business intelligence and data analytics. Specialized in time series forecasting, financial modeling, and classical ML implementations.",
+      "company": "Keejob",
+      "position": "Python Backend Engineer",
+      "period": "06/2022 – 09/2024",
+      "location": "Tunis, Tunisia",
+      "description": "Built recruiter-facing API endpoints and contributed to the broader production backend serving millions of monthly page views.",
       "achievements": [
-        "Built time series forecasting models for financial data with 92% accuracy",
-        "Developed intelligent trading agent with RL achieving 25% annual return",
-        "Created ML pipelines for production deployment with 99% uptime",
-        "Improved model accuracy by 20% through feature engineering",
-        "Processed 1M+ network events daily for intrusion detection system",
-        "Deployed 20+ ML models to production"
+        "Built full recruiter-facing API endpoints consumed by Keejob's new frontend",
+        "Generated OpenAPI schemas with drf-spectacular for frontend-backend consistency",
+        "Achieved 95% test coverage on the new API surface",
+        "Implemented JWT authentication and consumed Kafka events from upstream systems"
       ],
-      "technologies": ["Python", "Scikit-learn", "PyTorch", "Pandas", "NumPy", "Django", "FastAPI", "XGBoost"],
-      "projects": [
-        "FRED Time Series Modeling",
-        "Intelligent Trading Agent",
-        "Intrusion Detection System",
-        "Classical ML Models"
-      ]
+      "technologies": ["Python", "Django REST Framework", "PostgreSQL", "Redis", "RabbitMQ", "Kafka", "JWT", "pytest"],
+      "projects": ["Recruiter API", "Production Backend"]
+    },
+    {
+      "company": "VALUE Digital Services",
+      "position": "AI Developer",
+      "period": "06/2024 – 08/2024",
+      "location": "Tunis, Tunisia",
+      "description": "Built a computer vision market-intelligence platform processing more than one million data points daily.",
+      "achievements": [
+        "Built a computer vision platform processing 1M+ data points daily at 91% uptime",
+        "Applied supervised, transfer, and reinforcement learning across large datasets",
+        "Deployed AI services to AWS, Azure, and Google Cloud using Docker and CI/CD"
+      ],
+      "technologies": ["Python", "PyTorch", "TensorFlow", "OpenCV", "Docker", "AWS", "Azure", "GCP"],
+      "projects": ["Computer Vision Platform"]
     },
     {
       "company": "VERMEG",
-      "position": "Software Engineer",
-      "period": "2020 - 2021",
-      "location": "Tunisia",
-      "description": "Full-stack development with focus on web applications and backend systems. Built scalable RESTful APIs and implemented CI/CD pipelines.",
+      "position": "Web Developer",
+      "period": "06/2023 – 08/2023",
+      "location": "Tunis, Tunisia",
+      "description": "Built a responsive securities-processing web application covering issuance type, amount, and pricing configuration.",
       "achievements": [
-        "Developed web applications using Angular and Django",
-        "Built RESTful APIs serving 10K+ requests/day",
-        "Implemented CI/CD pipelines reducing deployment time by 50%",
-        "Collaborated with international teams on enterprise projects",
-        "Improved application performance by 35% through optimization"
+        "Built a responsive React/Node.js/Express web application",
+        "Integrated MySQL, PostgreSQL, and MongoDB via RESTful APIs"
       ],
-      "technologies": ["Angular", "Django", "PostgreSQL", "Docker", "JavaScript", "TypeScript", "Python"],
-      "projects": [
-        "Enterprise Web Applications",
-        "RESTful API Development"
-      ]
+      "technologies": ["React", "Node.js", "Express", "MySQL", "PostgreSQL", "MongoDB"],
+      "projects": ["Securities Processing App"]
     }
   ],
   "education": [
     {
-      "institution": "Private Higher School of Engineering and Technology",
-      "degree": "Data Science Engineer",
-      "period": "2016 - 2024",
+      "institution": "Higher School of Engineering and Technologies (ESPRIT)",
+      "degree": "Engineer Diploma in Software Engineering",
+      "period": "2025",
       "location": "Tunisia",
-      "description": "Graduated with Highest Honors and Jury Congratulations (19/20). Specialized in Data Science, Artificial Intelligence, Machine Learning, and Software Engineering.",
+      "description": "Completed engineering studies with a strong foundation in software engineering and AI/data science.",
       "achievements": [
-        "Highest Honors (19/20)",
-        "Jury Congratulations",
-        "Specialized in AI and Data Science",
-        "Completed AI internship at Plug & Plai in Stuttgart, Germany"
+        "Software engineering diploma",
+        "Focused on AI and data science systems"
       ]
+    },
+    {
+      "institution": "Marburg University of Applied Sciences",
+      "degree": "Exchange Year",
+      "period": "2024 – 2025",
+      "location": "Germany",
+      "description": "Completed an exchange year in Germany during the engineering program.",
+      "achievements": []
     }
   ],
   "languages": [
     {
       "name": "English",
-      "level": "Fluent"
+      "level": "Advanced"
     },
     {
       "name": "French",
       "level": "Fluent"
     },
     {
-      "name": "Arabic",
-      "level": "Native"
+      "name": "German",
+      "level": "Pre-Intermediate (A2)"
     }
   ]
 }

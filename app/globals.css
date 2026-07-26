@@ -23,6 +23,9 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  /* Reserve space for fixed navbar to avoid overlap */
+  padding-top: 72px;
 }
 
 /* Custom scrollbar */
@@ -68,5 +71,32 @@ body {
 
 .animate-float {
   animation: float 6s ease-in-out infinite;
+}
+
+/* Navbar link refinement */
+.main-nav a,
+.main-nav a:visited {
+  display: inline-block;
+  padding: 6px 8px;
+  border-radius: 6px;
+}
+
+.main-nav a:hover {
+  background: rgba(255,0,51,0.06);
+}
+
+@keyframes pulse-slow {
+  0%, 100% {
+    opacity: 0.55;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.35;
+    transform: scale(1.08);
+  }
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 10s ease-in-out infinite;
 }
 

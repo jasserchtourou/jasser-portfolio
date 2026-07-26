@@ -1,288 +1,83 @@
 {
   "projects": [
     {
-      "id": "surgical-rag-chatbot",
-      "title": "AI-Powered Surgical Chatbot",
+      "id": "order-to-cash-pipeline",
+      "title": "Order-to-Cash Multi-Agent Pipeline",
       "cluster": "rag-nlp",
-      "description": "Advanced RAG-powered chatbot for surgical procedures, providing real-time assistance to medical professionals with context-aware responses. Built with production-grade architecture handling high-volume medical queries with sub-second latency.",
-      "skills": ["RAG", "LangChain", "LLM Ops", "Vector Databases", "Python", "Medical AI"],
-      "techStack": ["Python", "LangChain", "PgVector", "OpenAI GPT-4", "FastAPI", "PostgreSQL", "Docker", "Kubernetes"],
+      "description": "A LangGraph supervisor-agent architecture automating order validation, invoicing, and reconciliation with Azure OpenAI GPT-4o.",
+      "skills": ["LangGraph", "Multi-Agent Systems", "RAG", "Automation", "Backend Engineering"],
+      "techStack": ["Python", "FastAPI", "LangGraph", "Azure OpenAI", "Celery", "Redis", "PostgreSQL", "pgvector"],
       "achievements": [
-        "Reduced response time by 60% through optimized vector search algorithms",
-        "Achieved 95% accuracy in medical procedure recommendations",
-        "Handled 10K+ concurrent queries with sub-second latency",
-        "Processed 50K+ medical documents with semantic search"
+        "Automated order validation and reconciliation workflows",
+        "Built a supervisor-agent pipeline for end-to-end process orchestration",
+        "Integrated asynchronous task handling for robust production execution"
       ],
-      "github": "https://github.com/jasserchtourou/surgical-rag-chatbot",
-      "demo": "https://www.youtube.com/watch?v=ImrJ5dxrb9M",
-      "demoVideo": "https://www.youtube.com/embed/ImrJ5dxrb9M",
-      "hasVideo": true,
+      "github": "",
+      "demo": null,
+      "hasVideo": false,
       "metrics": {
-        "uptime": "99.2%",
-        "queriesPerDay": "100K+",
-        "responseTime": "< 200ms",
-        "accuracy": "95%"
+        "workflow": "End-to-end automation",
+        "stack": "LangGraph + FastAPI"
       }
     },
     {
-      "id": "market-intelligence-ai",
-      "title": "AbrechnungAi",
+      "id": "incident-response-system",
+      "title": "Multi-Agent Incident Response System",
       "cluster": "rag-nlp",
-      "description": "Intelligent market analysis system using RAG to process financial documents, news, and reports for actionable insights. Automates research workflows and provides real-time market sentiment analysis.",
-      "skills": ["RAG", "NLP", "Financial Analysis", "Data Processing", "Sentiment Analysis"],
-      "techStack": ["Python", "LangChain", "ChromaDB", "OpenAI", "Pandas", "Streamlit", "FastAPI"],
+      "description": "A multi-agent incident response platform using LLMs and RAG for automated root-cause analysis and mitigation recommendations.",
+      "skills": ["RAG", "LLM Orchestration", "Incident Analysis", "FastAPI", "Async Systems"],
+      "techStack": ["Python", "FastAPI", "Celery", "Redis", "PostgreSQL", "LangChain", "Llama 3.3"],
       "achievements": [
-        "Processed 1M+ financial documents with semantic search",
-        "Generated real-time market insights with 90% accuracy",
-        "Reduced analysis time from hours to minutes",
-        "Achieved 91% uptime in production environment"
+        "Built a five-agent pipeline for anomaly detection, log analysis, and mitigation recommendations",
+        "Deployed the system end-to-end for production incident triage",
+        "Integrated low-latency LLM inference with self-hosted models"
       ],
-      "github": "https://github.com/jasserchtourou/market-intelligence-ai",
-      "demo": "https://www.youtube.com/watch?v=oGpil57uHBQ",
-      "demoVideo": "https://www.youtube.com/embed/oGpil57uHBQ",
-      "hasVideo": true,
-      "metrics": {
-        "documentsProcessed": "1M+",
-        "accuracy": "90%",
-        "uptime": "91%",
-        "processingSpeed": "1000 docs/min"
-      }
-    },
-    {
-      "id": "rag-pipelines",
-      "title": "Production RAG Pipelines",
-      "cluster": "rag-nlp",
-      "description": "Scalable RAG pipeline architecture for production environments with advanced chunking, embedding, and retrieval strategies. Designed for enterprise-scale document processing with high throughput and low latency.",
-      "skills": ["RAG", "MLOps", "Vector Databases", "System Design", "Distributed Systems"],
-      "techStack": ["Python", "LangChain", "Weaviate", "Docker", "Kubernetes", "FastAPI", "Redis"],
-      "achievements": [
-        "Designed pipelines handling 100K+ documents with 99.5% reliability",
-        "Implemented advanced chunking strategies improving retrieval by 40%",
-        "Built monitoring and observability dashboards with real-time metrics",
-        "Reduced embedding costs by 35% through optimization"
-      ],
-      "github": "https://github.com/jasserchtourou/rag-pipelines",
+      "github": "",
       "demo": null,
-      "architecture": "/images/architectures/rag-pipelines.png",
+      "hasVideo": false,
       "metrics": {
-        "documentsHandled": "100K+",
-        "reliability": "99.5%",
-        "retrievalImprovement": "40%",
-        "costReduction": "35%"
+        "agents": "5 parallel agents",
+        "focus": "Automated root-cause analysis"
       }
     },
     {
-      "id": "recruitment-voice-assistant",
-      "title": "Recruitment Voice Assistant",
-      "cluster": "voice-ai",
-      "description": "AI-powered voice assistant for recruitment processes, handling candidate screening and interview scheduling through natural conversation. Supports multiple languages and integrates with ATS systems.",
-      "skills": ["Voice AI", "Speech Recognition", "NLP", "Conversational AI", "Multi-language"],
-      "techStack": ["Python", "Whisper", "OpenAI", "WebRTC", "FastAPI", "React", "PostgreSQL"],
-      "achievements": [
-        "Achieved 98% speech recognition accuracy across multiple languages",
-        "Reduced screening time by 70% through automation",
-        "Handled 500+ concurrent voice sessions with < 200ms latency",
-        "Improved candidate experience with 24/7 availability"
-      ],
-      "github": "https://github.com/jasserchtourou/recruitment-voice-assistant",
-      "demo": null,
-      "architecture": "/images/architectures/voice-assistant.png",
-      "metrics": {
-        "accuracy": "98%",
-        "timeReduction": "70%",
-        "concurrentSessions": "500+",
-        "latency": "< 200ms"
-      }
-    },
-    {
-      "id": "speech-recognition-optimization",
-      "title": "Speech Recognition Optimization",
-      "cluster": "voice-ai",
-      "description": "Optimized speech recognition models for low-latency, high-accuracy real-time transcription in production environments. Implemented model quantization and inference optimization techniques.",
-      "skills": ["Voice AI", "Model Optimization", "MLOps", "Performance Tuning", "Quantization"],
-      "techStack": ["Python", "Whisper", "TensorFlow", "ONNX", "C++", "CUDA", "PyTorch"],
-      "achievements": [
-        "Reduced inference time by 50% through model optimization",
-        "Achieved real-time transcription (< 200ms latency)",
-        "Optimized model size by 40% without accuracy loss",
-        "Deployed to production serving 1M+ requests/day"
-      ],
-      "github": "https://github.com/jasserchtourou/speech-optimization",
-      "demo": null,
-      "architecture": "/images/architectures/speech-optimization.png",
-      "metrics": {
-        "inferenceTimeReduction": "50%",
-        "latency": "< 200ms",
-        "modelSizeReduction": "40%",
-        "requestsPerDay": "1M+"
-      }
-    },
-    {
-      "id": "mask-rcnn-adaptive",
-      "title": "Mask R-CNN Adaptive Detection",
-      "cluster": "computer-vision",
-      "description": "Adaptive object detection and segmentation system using Mask R-CNN with domain adaptation for remote sensing applications. Handles diverse image conditions with high precision.",
-      "skills": ["Computer Vision", "Deep Learning", "Object Detection", "Segmentation", "Domain Adaptation"],
-      "techStack": ["Python", "PyTorch", "Detectron2", "OpenCV", "TensorFlow", "CUDA"],
-      "achievements": [
-        "Achieved 92% mAP on remote sensing datasets",
-        "Implemented domain adaptation reducing annotation needs by 60%",
-        "Deployed model serving 1M+ images/day with 99% uptime",
-        "Improved detection accuracy by 25% through fine-tuning"
-      ],
-      "github": "https://github.com/jasserchtourou/mask-rcnn-adaptive",
-      "demo": null,
-      "architecture": "/images/architectures/mask-rcnn.png",
-      "metrics": {
-        "mAP": "92%",
-        "annotationReduction": "60%",
-        "imagesPerDay": "1M+",
-        "uptime": "99%"
-      }
-    },
-    {
-      "id": "remote-sensing-analysis",
-      "title": "Remote Sensing Image Analysis",
-      "cluster": "computer-vision",
-      "description": "Advanced image analysis pipeline for satellite and aerial imagery with automated feature extraction and classification. Processes large-scale geospatial data for environmental monitoring.",
-      "skills": ["Computer Vision", "Image Processing", "Remote Sensing", "Geospatial Analysis", "Deep Learning"],
-      "techStack": ["Python", "PyTorch", "Rasterio", "GDAL", "Scikit-learn", "OpenCV"],
-      "achievements": [
-        "Processed 10TB+ of satellite imagery with automated pipelines",
-        "Automated feature extraction reducing manual work by 80%",
-        "Achieved 89% classification accuracy across diverse terrains",
-        "Reduced processing time by 65% through GPU acceleration"
-      ],
-      "github": "https://github.com/jasserchtourou/remote-sensing",
-      "demo": null,
-      "architecture": "/images/architectures/remote-sensing.png",
-      "metrics": {
-        "dataProcessed": "10TB+",
-        "workReduction": "80%",
-        "accuracy": "89%",
-        "timeReduction": "65%"
-      }
-    },
-    {
-      "id": "fred-time-series",
-      "title": "FRED Time Series Modeling",
-      "cluster": "time-series",
-      "description": "Advanced time series forecasting using FRED economic data with LSTM, Transformer, and classical models for financial predictions. Handles multiple economic indicators simultaneously.",
-      "skills": ["Time Series", "Forecasting", "Deep Learning", "Financial Modeling", "LSTM", "Transformers"],
-      "techStack": ["Python", "PyTorch", "TensorFlow", "Prophet", "Pandas", "NumPy", "Scikit-learn"],
-      "achievements": [
-        "Achieved 15% improvement over baseline models",
-        "Built ensemble models with 92% accuracy",
-        "Processed 100+ economic indicators simultaneously",
-        "Reduced forecast error by 30% through feature engineering"
-      ],
-      "github": "https://github.com/jasserchtourou/fred-time-series",
-      "demo": null,
-      "architecture": "/images/architectures/time-series.png",
-      "metrics": {
-        "improvement": "15%",
-        "accuracy": "92%",
-        "indicatorsProcessed": "100+",
-        "errorReduction": "30%"
-      }
-    },
-    {
-      "id": "intelligent-trading-agent",
-      "title": "Intelligent Trading Agent",
-      "cluster": "time-series",
-      "description": "Reinforcement learning-based trading agent using time series analysis and market signals for automated trading decisions. Implements risk management and portfolio optimization. Developed in partnership with VALUE Digital Services.",
-      "skills": ["Time Series", "Reinforcement Learning", "Trading", "Financial AI", "RL", "Risk Management"],
-      "techStack": ["Python", "PyTorch", "Gym", "Pandas", "NumPy", "TensorFlow", "OpenAI Gym"],
-      "achievements": [
-        "Achieved 25% annual return in backtesting",
-        "Implemented risk management reducing drawdowns by 40%",
-        "Built real-time trading pipeline with < 50ms latency",
-        "Optimized portfolio allocation improving Sharpe ratio by 35%"
-      ],
-      "github": "https://github.com/jasserchtourou/trading-agent",
-      "demo": "https://www.youtube.com/watch?v=-etJ5xjsgHM",
-      "demoVideo": "https://www.youtube.com/embed/-etJ5xjsgHM",
-      "hasVideo": true,
-      "metrics": {
-        "annualReturn": "25%",
-        "drawdownReduction": "40%",
-        "latency": "< 50ms",
-        "sharpeImprovement": "35%"
-      }
-    },
-    {
-      "id": "intrusion-detection-system",
-      "title": "Intrusion Detection System",
+      "id": "knowledge-graph-system",
+      "title": "Knowledge Graph System for Project Management",
       "cluster": "ml-data",
-      "description": "ML-powered network intrusion detection system using ensemble methods and anomaly detection for cybersecurity. Processes network traffic in real-time with high accuracy.",
-      "skills": ["Machine Learning", "Anomaly Detection", "Cybersecurity", "Network Analysis", "Ensemble Methods"],
-      "techStack": ["Python", "Scikit-learn", "XGBoost", "TensorFlow", "Pandas", "NumPy", "Kafka"],
+      "description": "A PMBOK-based knowledge graph using BERT for entity and relation extraction, with semantic retrieval powered by PyTorch and Pinecone.",
+      "skills": ["Knowledge Graphs", "NLP", "Graph Neural Networks", "Semantic Retrieval", "PyTorch"],
+      "techStack": ["Python", "PyTorch", "BERT", "Pinecone", "Graph Neural Networks", "Semantic Search"],
       "achievements": [
-        "Achieved 96% detection accuracy with low false positives",
-        "Reduced false positives by 35% through ensemble methods",
-        "Processed 1M+ network events in real-time",
-        "Deployed to production with 99.8% uptime"
+        "Built a knowledge graph for project management concepts and relationships",
+        "Used NLP and GNNs to support entity extraction and link prediction",
+        "Enabled knowledge retrieval with semantic search"
       ],
-      "github": "https://github.com/jasserchtourou/ids",
+      "github": "",
       "demo": null,
-      "architecture": "/images/architectures/ids.png",
+      "hasVideo": false,
       "metrics": {
-        "accuracy": "96%",
-        "falsePositiveReduction": "35%",
-        "eventsPerDay": "1M+",
-        "uptime": "99.8%"
+        "domain": "Project management",
+        "approach": "BERT + GNN"
       }
     },
     {
-      "id": "classical-ml-models",
-      "title": "Classical ML Models",
-      "cluster": "ml-data",
-      "description": "Production-ready implementations of GMM, KNN, Decision Trees, and ensemble methods for various classification and regression tasks. Optimized for performance and scalability.",
-      "skills": ["Machine Learning", "Classical ML", "Model Deployment", "MLOps", "GMM", "KNN"],
-      "techStack": ["Python", "Scikit-learn", "XGBoost", "LightGBM", "FastAPI", "Docker"],
-      "achievements": [
-        "Deployed 20+ models to production with 99% uptime",
-        "Achieved 90%+ accuracy across multiple domains",
-        "Built automated training and deployment pipelines",
-        "Reduced model inference time by 45% through optimization"
-      ],
-      "github": "https://github.com/jasserchtourou/classical-ml",
-      "demo": null,
-      "architecture": "/images/architectures/classical-ml.png",
-      "metrics": {
-        "modelsDeployed": "20+",
-        "uptime": "99%",
-        "accuracy": "90%+",
-        "inferenceTimeReduction": "45%"
-      }
-    },
-    {
-      "id": "knowledge-base-management",
-      "title": "Knowledge Base Management System",
+      "id": "plug-chat",
+      "title": "Plug&Chat",
       "cluster": "rag-nlp",
-      "description": "Complete RAG-powered Knowledge Base Management System developed for Plug&Plai voice assistants. Features automated release notes generation, knowledge base gap identification, and seamless integration with voice bot infrastructure. Built from scratch using Upstage vector database, GPT-4, and FastAPI.",
-      "skills": ["RAG", "NLP", "Vector Databases", "GPT-4", "FastAPI", "Knowledge Management", "Automation"],
-      "techStack": ["Python", "RAG", "GPT-4", "FastAPI", "Upstage Vector DB", "LangChain", "OpenAI", "React", "Docker"],
+      "description": "A multi-tenant RAG assistant for per-client knowledge isolation, semantic retrieval, and voice interaction features.",
+      "skills": ["RAG", "Vector Databases", "Voice Interaction", "REST APIs", "Multi-tenant Systems"],
+      "techStack": ["Python", "LangChain", "pgvector", "FastAPI", "OpenAI", "React", "Docker"],
       "achievements": [
-        "Built complete Knowledge Base System with RAG engine improving voice bot accuracy",
-        "Implemented automated release notes generation from video transcripts using GPT-4",
-        "Developed knowledge base gap identification to track and address unanswered queries",
-        "Created client-specific namespaces ensuring only approved content is indexed",
-        "Enabled multiple input sources: PDF upload, URL scraping, and blank documents",
-        "Automated release notes integration into RAG database for continuous enrichment",
-        "Improved voice bot response accuracy by providing centralized knowledge database"
+        "Built a multi-tenant assistant with isolated client knowledge bases",
+        "Integrated voice interaction features into the underlying RAG backend",
+        "Exposed RAG and NLP functionality through REST APIs"
       ],
-      "github": "https://github.com/jasserchtourou/knowledge-base-management",
-      "demo": "https://www.linkedin.com/posts/jasser-chtourou_engineering-automation-ai-activity-7356634435653353474-wuqF",
-      "demoVideo": "https://www.linkedin.com/embed/feed/update/urn:li:activity:7356634435653353474",
-      "videoLink": "https://www.linkedin.com/posts/jasser-chtourou_engineering-automation-ai-activity-7356634435653353474-wuqF",
-      "linkedinProject": "https://www.linkedin.com/in/jasser-chtourou/details/projects/",
-      "hasVideo": true,
+      "github": "",
+      "demo": null,
+      "hasVideo": false,
       "metrics": {
-        "voiceBotAccuracy": "Significantly Improved",
-        "releaseNotesAutomation": "100%",
-        "gapIdentification": "Real-time Tracking",
-        "knowledgeBaseUpdates": "Automated"
+        "focus": "Per-client retrieval",
+        "mode": "Voice-enabled assistant"
       }
     }
   ]

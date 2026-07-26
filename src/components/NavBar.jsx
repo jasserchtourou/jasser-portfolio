@@ -13,53 +13,45 @@ export function NavBar() {
     >
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         <div className="flex items-center">
-          <Link href="/" className="text-2xl font-bold bg-gradient-to-r from-neural-red to-neural-crimson bg-clip-text text-transparent">
-            Jasser Portfolio
+          <Link href="/" className="text-2xl font-bold mr-12 bg-gradient-to-r from-neural-red to-neural-crimson bg-clip-text text-transparent">
+            Jasser Chtourou
           </Link>
         </div>
-        
-        <div className="flex items-center gap-6">
-          <Link
-            href="/"
-            className="text-gray-300 hover:text-neural-red transition-colors"
-          >
-            About
-          </Link>
-          <Link
-            href="/projects"
-            className="text-gray-300 hover:text-neural-red transition-colors"
-          >
-            Projects
-          </Link>
-          <Link
-            href="/skills"
-            className="text-gray-300 hover:text-neural-red transition-colors"
-          >
-            Skills
-          </Link>
-          <Link
-            href="/universe"
-            className="text-gray-300 hover:text-neural-red transition-colors"
-          >
-            Universe
-          </Link>
-          <a
-            href={skillsData.core.contact.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-gray-300 hover:text-neural-red transition-colors"
-          >
-            GitHub
-          </a>
-          <a
-            href={skillsData.core.contact.linkedin}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-gray-300 hover:text-neural-red transition-colors"
-          >
-            LinkedIn
-          </a>
-        </div>
+
+        <nav aria-label="Main navigation">
+          <ul className="flex items-center gap-8 whitespace-nowrap">
+            <li>
+              <Link href="/" className="text-gray-300 hover:text-neural-red transition-colors px-2 py-1">
+                About
+              </Link>
+            </li>
+            <li>
+              <Link href="/projects" className="text-gray-300 hover:text-neural-red transition-colors px-2 py-1">
+                Projects
+              </Link>
+            </li>
+            <li>
+              <Link href="/skills" className="text-gray-300 hover:text-neural-red transition-colors px-2 py-1">
+                Skills
+              </Link>
+            </li>
+            <li>
+              <a href={skillsData.core.contact.github} target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-neural-red transition-colors px-2 py-1">
+                GitHub
+              </a>
+            </li>
+            <li>
+              <a href={skillsData.core.contact.medium} target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-neural-red transition-colors px-2 py-1">
+                Medium
+              </a>
+            </li>
+            <li>
+              <a href={skillsData.core.contact.linkedin} target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-neural-red transition-colors px-2 py-1">
+                LinkedIn
+              </a>
+            </li>
+          </ul>
+        </nav>
       </div>
     </motion.nav>
   );

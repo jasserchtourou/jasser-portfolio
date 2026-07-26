@@ -7,7 +7,8 @@ import experienceData from '@/src/data/experience.json';
 import skillsData from '@/src/data/skills.json';
 import { getClusterColor } from '@/src/lib/colorMap';
 import { Play, ExternalLink } from 'lucide-react';
-import { useState } from 'react';
+import anime from 'animejs';
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
 
 export default function About() {
@@ -16,11 +17,24 @@ export default function About() {
   const [imageError, setImageError] = useState(false);
   const plugPlaiExp = experienceData.experience.find(exp => exp.company === 'Plug&Plai');
 
+  useEffect(() => {
+    anime.timeline({ easing: 'easeOutQuad', duration: 700 })
+      .add({ targets: '.hero-title span', translateY: [50, 0], opacity: [0, 1], delay: anime.stagger(80) })
+      .add({ targets: '.hero-subtitle', opacity: [0, 1], translateY: [20, 0], duration: 600 }, '-=500')
+      .add({ targets: '.hero-links a', opacity: [0, 1], translateY: [20, 0], delay: anime.stagger(100), duration: 500 }, '-=400');
+  }, []);
+
   return (
     <main className="min-h-screen text-white" style={{ backgroundColor: '#0A0A0A' }}>
       <NavBar />
       
-      <div className="max-w-7xl mx-auto px-6 py-24">
+      <div className="max-w-7xl mx-auto px-6 py-24 relative overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          <div className="absolute left-1/2 top-12 w-[420px] h-[420px] rounded-full bg-red-500/10 blur-3xl -translate-x-1/2 animate-pulse-slow" />
+          <div className="absolute right-10 top-40 w-[280px] h-[280px] rounded-full bg-neural-crimson/10 blur-3xl animate-pulse-slow" />
+          <div className="absolute left-10 top-32 w-[220px] h-[220px] rounded-full bg-neural-hot/10 blur-3xl animate-pulse-slow" />
+          <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-black/90 to-transparent" />
+        </div>
         {/* Hero Section with Photo and Video */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -72,13 +86,50 @@ export default function About() {
             </div>
           </motion.div>
 
-          <h1 className="text-5xl md:text-7xl font-bold mb-4 bg-gradient-to-r from-neural-red via-neural-crimson to-neural-hot bg-clip-text text-transparent">
-            Jasser Chtourou
+          <h1 className="text-5xl md:text-7xl font-bold mb-4 bg-gradient-to-r from-neural-red via-neural-crimson to-neural-hot bg-clip-text text-transparent hero-title">
+            <span className="block">AI Engineer</span>
+            <span className="block">Python & Backend Systems</span>
           </h1>
-          <p className="text-2xl md:text-3xl text-gray-300 mb-6">AI Engineer</p>
-          <p className="text-lg text-gray-400 max-w-3xl mx-auto leading-relaxed mb-12">
+          <p className="text-sm uppercase tracking-[0.35em] text-neural-red mb-4 hero-subtitle">
+            UI Verse — cinematic AI engineering for modern backends
+          </p>
+          <p className="text-2xl md:text-3xl text-gray-300 mb-6">AI Engineer - Python & Backend Systems</p>
+          <p className="text-lg text-gray-400 max-w-3xl mx-auto leading-relaxed mb-8">
             {core.summary}
           </p>
+
+          <div className="hero-links flex flex-wrap justify-center gap-4 mb-14">
+            <a
+              href={`mailto:${core.contact.email}`}
+              className="px-6 py-3 rounded-full border border-neural-red/40 bg-neural-red/10 text-neural-red font-semibold transition hover:bg-neural-red/20"
+            >
+              Email
+            </a>
+            <a
+              href={core.contact.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-6 py-3 rounded-full border border-white/20 bg-white/5 text-white font-semibold transition hover:bg-white/10"
+            >
+              GitHub
+            </a>
+            <a
+              href={core.contact.medium}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-6 py-3 rounded-full border border-neural-crimson/30 bg-neural-crimson/10 text-neural-crimson font-semibold transition hover:bg-neural-crimson/20"
+            >
+              Medium
+            </a>
+            <a
+              href={core.contact.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-6 py-3 rounded-full border border-neural-hot/30 bg-neural-hot/10 text-neural-hot font-semibold transition hover:bg-neural-hot/20"
+            >
+              LinkedIn
+            </a>
+          </div>
 
           {/* Featured Project Video - Plug&Plai */}
           {plugPlaiExp && plugPlaiExp.hasVideo && (
@@ -291,10 +342,10 @@ export default function About() {
               GitHub
             </a>
             <Link
-              href="/universe"
+              href="/projects"
               className="px-6 py-3 bg-gradient-to-r from-neural-red to-neural-crimson hover:from-neural-crimson hover:to-neural-hot rounded-lg transition-all transform hover:scale-105"
             >
-              Explore 3D Universe →
+              View Projects →
             </Link>
           </motion.div>
         </motion.div>
@@ -396,6 +447,26 @@ export default function About() {
                     </div>
                   )}
                 </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        )}
+
+        {/* Languages */}
+        {experienceData.languages && experienceData.languages.length > 0 && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 1.0 }}
+            className="mb-16"
+          >
+            <h2 className="text-3xl font-bold mb-8 text-neural-red">Languages</h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              {experienceData.languages.map((language, index) => (
+                <div key={index} className="bg-gray-900/50 border border-gray-800 rounded-lg p-5">
+                  <h3 className="text-white font-semibold text-lg">{language.name}</h3>
+                  <p className="text-gray-400 mt-1">{language.level}</p>
+                </div>
               ))}
             </div>
           </motion.div>
