@@ -74,10 +74,34 @@
       ],
       "github": "",
       "demo": null,
-      "hasVideo": false,
+      "hasVideo": true,
+      "demoVideo": "https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7356634157969555457?compact=1",
       "metrics": {
         "focus": "Per-client retrieval",
         "mode": "Voice-enabled assistant"
+      }
+    }
+    ,
+    {
+      "id": "db-delay-prediction",
+      "title": "AI-powered Deutsche Bahn — Delay Prediction & Operational Recommendations",
+      "cluster": "ml-data",
+      "description": "Train delays aren't just frustrating — they are complex data engineering problems. Built an AI-powered delay prediction and operational recommendation engine integrating the Deutsche Bahn open API for live schedules and a synthetic dataset to model historical delay distributions.",
+      "skills": ["Time Series", "XGBoost", "LightGBM", "Explainable AI", "FastAPI", "Data Engineering"],
+      "techStack": ["Python", "FastAPI", "XGBoost", "LightGBM", "SHAP", "Kafka", "Docker", "Node.js"],
+      "achievements": [
+        "Built ML pipelines with XGBoost and LightGBM for delay regression and root-cause classification",
+        "Integrated SHAP for explainability so operators can inspect feature-level contributions",
+        "Containerized FastAPI backend designed for real-time ingestion and Kafka readiness",
+        "Premium Node.js/Vite frontend demo showcasing prediction flow and dispatcher UI"
+      ],
+      "github": "https://github.com/jasserchtourou/AI-powered-Deutsche-Bahn-delay-prediction-operational-recommendations-service",
+      "demo": null,
+      "hasVideo": true,
+      "demoVideo": "https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7449761122456420352?compact=1",
+      "metrics": {
+        "focus": "Delay prediction",
+        "approach": "XGBoost + LightGBM + SHAP"
       }
     }
   ]

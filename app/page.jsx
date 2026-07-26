@@ -87,49 +87,14 @@ export default function About() {
           </motion.div>
 
           <h1 className="text-5xl md:text-7xl font-bold mb-4 bg-gradient-to-r from-neural-red via-neural-crimson to-neural-hot bg-clip-text text-transparent hero-title">
-            <span className="block">AI Engineer</span>
-            <span className="block">Python & Backend Systems</span>
+            <span className="block">Jasser Chtourou</span>
           </h1>
-          <p className="text-sm uppercase tracking-[0.35em] text-neural-red mb-4 hero-subtitle">
-            UI Verse — cinematic AI engineering for modern backends
-          </p>
           <p className="text-2xl md:text-3xl text-gray-300 mb-6">AI Engineer - Python & Backend Systems</p>
           <p className="text-lg text-gray-400 max-w-3xl mx-auto leading-relaxed mb-8">
             {core.summary}
           </p>
 
-          <div className="hero-links flex flex-wrap justify-center gap-4 mb-14">
-            <a
-              href={`mailto:${core.contact.email}`}
-              className="px-6 py-3 rounded-full border border-neural-red/40 bg-neural-red/10 text-neural-red font-semibold transition hover:bg-neural-red/20"
-            >
-              Email
-            </a>
-            <a
-              href={core.contact.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-6 py-3 rounded-full border border-white/20 bg-white/5 text-white font-semibold transition hover:bg-white/10"
-            >
-              GitHub
-            </a>
-            <a
-              href={core.contact.medium}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-6 py-3 rounded-full border border-neural-crimson/30 bg-neural-crimson/10 text-neural-crimson font-semibold transition hover:bg-neural-crimson/20"
-            >
-              Medium
-            </a>
-            <a
-              href={core.contact.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-6 py-3 rounded-full border border-neural-hot/30 bg-neural-hot/10 text-neural-hot font-semibold transition hover:bg-neural-hot/20"
-            >
-              LinkedIn
-            </a>
-          </div>
+          {/* Primary contact buttons removed — the detailed action buttons below are kept */}
 
           {/* Featured Project Video - Plug&Plai */}
           {plugPlaiExp && plugPlaiExp.hasVideo && (
