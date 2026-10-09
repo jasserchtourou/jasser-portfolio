@@ -1,11 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  images: {
-    domains: ['github.com', 'raw.githubusercontent.com', 'media.licdn.com', 'linkedin.com'],
-    unoptimized: false,
+  async redirects() {
+    return [
+      { source: '/universe', destination: '/', permanent: true },
+      { source: '/landing', destination: '/', permanent: true },
+    ];
   },
-}
+};
 
-module.exports = nextConfig
-
+module.exports = nextConfig;

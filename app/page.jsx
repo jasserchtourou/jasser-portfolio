@@ -242,7 +242,7 @@ export default function About() {
                       </div>
                       <h3 className="text-2xl font-bold text-white mb-3">Watch Full Demo Video</h3>
                       <p className="text-gray-400 text-center max-w-2xl mb-6 leading-relaxed">
-                        See how I built a complete Knowledge Base System with RAG engine, automated release notes generation from video transcripts, and real-time gap identification for Plug&Plai's voice assistants. The system improves accuracy, tracks missing information, and updates itself automatically.
+                        See how I built a complete Knowledge Base System with RAG engine, automated release notes generation from video transcripts, and real-time gap identification for Plug&amp;Plai&apos;s voice assistants. The system improves accuracy, tracks missing information, and updates itself automatically.
                       </p>
                       <div className="flex gap-4">
                         <button
