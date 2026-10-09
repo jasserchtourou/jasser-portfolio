@@ -201,3 +201,37 @@
   background-color: rgb(var(--flow) / 0.1);
   box-shadow: 0 0 36px rgb(var(--flow) / 0.3);
 }
+
+/* RouteFlow panorama: tall scroll track only where the WebGL ring can run (desktop, fine
+   pointer, motion allowed). Elsewhere the hero is a normal-height, swipeable strip. */
+.pano-track {
+  position: relative;
+}
+.pano-stage {
+  position: relative;
+}
+@media (min-width: 1024px) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .pano-track {
+    height: 280vh;
+  }
+  .pano-stage {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow: hidden;
+  }
+}
+
+/* RouteFlow architecture map */
+.arch-node {
+  fill: rgb(var(--raised));
+  stroke: rgb(255 255 255 / 0.12);
+  stroke-width: 1.2;
+  transition:
+    stroke 0.4s ease,
+    fill 0.4s ease;
+}
+[data-node][data-active] .arch-node {
+  stroke: rgb(var(--flow));
+  fill: rgb(30 41 59);
+}

@@ -7,6 +7,7 @@ export function prefersReducedMotion() {
 export function canRunHeavy3D() {
   if (typeof window === 'undefined') return false;
   if (prefersReducedMotion()) return false;
+  if (new URLSearchParams(window.location.search).has('no3d')) return false; // QA switch for the 2D fallback
   const nav = window.navigator;
   if (nav.connection?.saveData) return false;
   if ((nav.hardwareConcurrency ?? 8) < 4) return false;
