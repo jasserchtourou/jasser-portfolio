@@ -30,7 +30,6 @@ export const profile = {
 // Every number here appears in the CV.
 export const heroStats = [
   { value: 3, suffix: '+', label: 'years building production backends' },
-  { value: 2, suffix: 'M+', label: 'users served by the Keejob backend I contributed to' },
   { value: 1000, suffix: '+', label: 'monthly uses of my multi-tenant RAG system' },
   { value: 80, suffix: '%', label: 'fewer document errors from my rule engine' },
 ];

@@ -65,7 +65,7 @@ export function Hero() {
 
         </div>
         <HeroTrace />
-        <dl className="lg:col-span-2 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-line/[0.08] bg-line/[0.08] lg:grid-cols-4">
+        <dl className="lg:col-span-2 grid grid-cols-1 gap-px overflow-hidden rounded-2xl border border-line/[0.08] bg-line/[0.08] sm:grid-cols-3">
           {heroStats.map((s, i) => (
             <div key={s.label} className="hero-fade bg-ink p-5 sm:p-6" style={{ '--i': 3 + i }}>
               <dt className="sr-only">{s.label}</dt>
