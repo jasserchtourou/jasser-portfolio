@@ -1,33 +1,31 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [
-    './pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './components/**/*.{js,ts,jsx,tsx,mdx}',
-    './app/**/*.{js,ts,jsx,tsx,mdx}',
-  ],
+  content: ['./app/**/*.{js,jsx,mdx}', './src/**/*.{js,jsx}'],
   theme: {
     extend: {
       colors: {
-        'neural-red': '#FF0033',
-        'neural-crimson': '#D00025',
-        'neural-hot': '#FF2E63',
-        'neural-ruby': '#C21833',
-        'neural-deep': '#8B0000',
-        'neural-soft': '#FF5E5E',
-        'neural-bg': '#0A0A0A',
+        ink: 'rgb(var(--ink) / <alpha-value>)',
+        panel: 'rgb(var(--panel) / <alpha-value>)',
+        raised: 'rgb(var(--raised) / <alpha-value>)',
+        line: 'rgb(var(--line) / <alpha-value>)',
+        fg: 'rgb(var(--fg) / <alpha-value>)',
+        muted: 'rgb(var(--muted) / <alpha-value>)',
+        subtle: 'rgb(var(--subtle) / <alpha-value>)',
+        accent: 'rgb(var(--accent) / <alpha-value>)',
+        'accent-soft': 'rgb(var(--accent-soft) / <alpha-value>)',
+        'accent-strong': 'rgb(var(--accent-strong) / <alpha-value>)',
+        flow: 'rgb(var(--flow) / <alpha-value>)',
+        amber: 'rgb(var(--amber) / <alpha-value>)',
       },
-      animation: {
-        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-        'glow': 'glow 2s ease-in-out infinite alternate',
+      fontFamily: {
+        sans: ['var(--font-sans)', 'system-ui', 'sans-serif'],
+        display: ['var(--font-display)', 'var(--font-sans)', 'sans-serif'],
+        mono: ['var(--font-mono)', 'ui-monospace', 'monospace'],
       },
-      keyframes: {
-        glow: {
-          '0%': { opacity: '0.5' },
-          '100%': { opacity: '1' },
-        },
+      maxWidth: {
+        page: '78rem',
       },
     },
   },
   plugins: [],
-}
-
+};
