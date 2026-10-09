@@ -183,3 +183,21 @@
     opacity: 1;
   }
 }
+
+/* Diagram nodes driven by <FlowWalkthrough> */
+[data-node] {
+  transition:
+    border-color 0.45s ease,
+    box-shadow 0.45s ease,
+    background-color 0.45s ease;
+}
+.flow-walkthrough[data-tone='accent'] [data-node][data-active] {
+  border-color: rgb(var(--accent) / 0.85);
+  background-color: rgb(var(--accent) / 0.08);
+  box-shadow: 0 0 36px rgb(var(--accent) / 0.25);
+}
+.flow-walkthrough[data-tone='flow'] [data-node][data-active] {
+  border-color: rgb(var(--flow) / 0.9);
+  background-color: rgb(var(--flow) / 0.1);
+  box-shadow: 0 0 36px rgb(var(--flow) / 0.3);
+}
