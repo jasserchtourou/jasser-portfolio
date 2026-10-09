@@ -71,6 +71,7 @@ node scripts/optimize-images.mjs <RouteFlowDir> <slidesPngDir>   # WebP conversi
 node scripts/capture-laforet.mjs                                  # La Forêt screenshots
 node scripts/capture-routeflow.mjs http://localhost:3000 <siteId>  # RouteFlow (docker compose up + seed first)
 node scripts/og-images.mjs                                        # public/og/*.png (1200×630)
+node scripts/portfolio-pdf.mjs <out.pdf>                          # 10-page PDF portfolio from src/data
 ```
 
 ## QA scripts (run against `npm start` on port 3200)
