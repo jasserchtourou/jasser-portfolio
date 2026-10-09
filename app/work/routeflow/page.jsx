@@ -5,6 +5,7 @@ import { SplitWords } from '@/src/components/SplitWords';
 import { BackLink, CaseSection, Metrics } from '@/src/components/case/CaseParts';
 import { Panorama } from '@/src/components/routeflow/Panorama';
 import { ArchitectureMap } from '@/src/components/routeflow/ArchitectureMap';
+import { AssistantRun } from '@/src/components/routeflow/AssistantRun';
 import {
   routeflowFacts,
   routeflowShots,
@@ -13,6 +14,7 @@ import {
   routeflowStack,
   routeflowLessons,
   routeflowRepo,
+  routeflowMobile,
 } from '@/src/data/routeflow';
 
 const description =
@@ -114,6 +116,18 @@ export default function RouteFlowPage() {
               </ul>
             </div>
           </div>
+          <div className="mt-14">
+            <h3 className="font-mono text-xs uppercase tracking-[0.16em] text-flow" data-reveal>
+              A real run, recorded from the seeded demo
+            </h3>
+            <p className="mt-3 max-w-2xl text-[15px] leading-relaxed text-muted" data-reveal>
+              One question that needs both kinds of truth. The model chose both tools on its own: live shipment data from
+              the database and the escalation procedure from the knowledge base, which it cites by source.
+            </p>
+            <div className="mt-6">
+              <AssistantRun />
+            </div>
+          </div>
         </CaseSection>
 
         <CaseSection id="features" index="03" eyebrow="Features" title="What an operator actually sees.">
@@ -162,6 +176,31 @@ export default function RouteFlowPage() {
                 </div>
               );
             })}
+          </div>
+          <div className="mt-24 grid items-center gap-10 lg:grid-cols-[1fr_1.4fr]">
+            <div>
+              <p className="font-mono text-xs uppercase tracking-[0.16em] text-flow" data-reveal>
+                Responsive
+              </p>
+              <h3 className="mt-3 font-display text-2xl font-semibold tracking-tight sm:text-3xl">
+                <SplitWords text="The same control centre on a phone." />
+              </h3>
+              <p className="mt-4 text-[15px] leading-relaxed text-muted" data-reveal>
+                Below the large breakpoint the sidebar becomes a drawer, KPI cards stack and tables stay keyboard-reachable.
+                Captured at 375 px from the running app.
+              </p>
+            </div>
+            <ul className="no-scrollbar -mx-4 flex snap-x gap-4 overflow-x-auto px-4 sm:mx-0 sm:grid sm:grid-cols-3 sm:overflow-visible sm:px-0">
+              {routeflowMobile.map((m) => (
+                <li
+                  key={m.id}
+                  className="relative aspect-[375/812] w-[62vw] shrink-0 snap-center overflow-hidden rounded-[1.75rem] border-[6px] border-raised bg-raised shadow-2xl shadow-black/50 sm:w-auto"
+                  data-reveal
+                >
+                  <Image src={`/images/routeflow/${m.id}-750.webp`} alt={m.alt} fill sizes="(min-width: 640px) 20vw, 62vw" className="object-cover object-top" />
+                </li>
+              ))}
+            </ul>
           </div>
         </CaseSection>
 

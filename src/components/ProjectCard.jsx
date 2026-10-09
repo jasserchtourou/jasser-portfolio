@@ -1,9 +1,10 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowRight, ArrowUpRight, Github, PlayCircle } from 'lucide-react';
+import { ArrowRight, ArrowUpRight, FileText, Github, PlayCircle } from 'lucide-react';
+import { YouTubeEmbed } from '@/src/components/YouTubeEmbed';
 
 function Links({ project }) {
-  const { caseStudy, repo, live, post } = project;
+  const { caseStudy, repo, live, post, deck, youtube } = project;
   return (
     <div className="mt-6 flex flex-wrap gap-2">
       {caseStudy ? (
@@ -21,6 +22,18 @@ function Links({ project }) {
         <a href={repo} target="_blank" rel="noopener noreferrer" className="btn-ghost !min-h-[40px] !px-4">
           <Github size={15} aria-hidden="true" /> Code
           <span className="sr-only">for {project.title} on GitHub (opens in a new tab)</span>
+        </a>
+      ) : null}
+      {deck ? (
+        <a href={deck} target="_blank" rel="noopener noreferrer" className="btn-ghost !min-h-[40px] !px-4">
+          <FileText size={15} aria-hidden="true" /> Slides (PDF)
+          <span className="sr-only">: {project.title} presentation, opens in a new tab</span>
+        </a>
+      ) : null}
+      {youtube ? (
+        <a href={`https://www.youtube.com/watch?v=${youtube.id}`} target="_blank" rel="noopener noreferrer" className="btn-ghost !min-h-[40px] !px-4">
+          YouTube <ArrowUpRight size={15} aria-hidden="true" />
+          <span className="sr-only">(opens in a new tab)</span>
         </a>
       ) : null}
       {post ? (
@@ -50,8 +63,15 @@ function Media({ project, sizes, priority }) {
           <a href={project.post}>Watch the demo on LinkedIn</a>
         </video>
         <span className="pointer-events-none absolute left-3 top-3 inline-flex items-center gap-1.5 rounded-full bg-black/70 px-2.5 py-1 font-mono text-[11px] text-fg">
-          <PlayCircle size={13} aria-hidden="true" /> Demo video · 7:50
+          <PlayCircle size={13} aria-hidden="true" /> Demo video · {project.video.duration}
         </span>
+      </div>
+    );
+  }
+  if (project.youtube) {
+    return (
+      <div className="relative aspect-video overflow-hidden rounded-xl border border-line/[0.08] bg-black">
+        <YouTubeEmbed {...project.youtube} sizes={sizes} />
       </div>
     );
   }

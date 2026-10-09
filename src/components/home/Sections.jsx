@@ -7,18 +7,18 @@ import { SplitWords } from '@/src/components/SplitWords';
 import { profile, education, certifications, languages } from '@/src/data/profile';
 import { experience, internships } from '@/src/data/experience';
 import { skills } from '@/src/data/skills';
-import { featuredProjects } from '@/src/data/projects';
+import { homeProjects, projects } from '@/src/data/projects';
 
 export function SelectedWork() {
-  const [sentry, ...rest] = featuredProjects.filter((p) => p.slug !== 'routeflow');
+  const [sentry, ...rest] = homeProjects;
   return (
     <section id="work" aria-labelledby="work-title" className="py-24 sm:py-32">
       <div className="page">
         <SectionHeading
           id="work-title"
           eyebrow="Selected work"
-          title="Systems, not demos."
-          intro="Governance layers for LLMs, multi-tenant RAG in production, and client work shipped with Kamka IT."
+          title="Built end to end."
+          intro="An LLM governance gateway, multi-tenant RAG in production, ML services with live data, and client work shipped with Kamka IT."
         />
         <div className="mt-14 grid gap-5 lg:grid-cols-2">
           <div className="lg:col-span-2">
@@ -30,7 +30,7 @@ export function SelectedWork() {
         </div>
         <div className="mt-10" data-reveal>
           <Link href="/projects" className="btn-ghost">
-            All projects <ArrowRight size={16} aria-hidden="true" />
+            All {projects.length} projects <ArrowRight size={16} aria-hidden="true" />
           </Link>
         </div>
       </div>
@@ -203,22 +203,32 @@ export function Education() {
               {certifications.featured.map((c) => (
                 <li key={c.name}>
                   <p className="font-medium text-fg">{c.name}</p>
-                  <p className="text-sm text-muted">
-                    {c.issuer}
-                    {c.status ? ` · ${c.status}` : ''}
-                  </p>
+                  <p className="text-sm text-muted">{[c.issuer, c.date, c.status].filter(Boolean).join(' · ')}</p>
                 </li>
               ))}
             </ul>
-            <a
-              href={`${profile.contact.linkedin}details/certifications/`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-5 inline-flex items-center gap-1 text-sm text-fg hover:text-accent-soft"
-            >
-              All {certifications.total} certifications on LinkedIn <ArrowUpRight size={14} aria-hidden="true" />
-              <span className="sr-only">(opens in a new tab)</span>
-            </a>
+            <details className="group mt-6 rounded-xl border border-line/[0.08] bg-panel/60">
+              <summary className="flex min-h-[44px] cursor-pointer list-none items-center justify-between gap-3 px-4 py-3 text-sm font-medium text-fg [&::-webkit-details-marker]:hidden">
+                All {certifications.total} certifications
+                <span aria-hidden="true" className="text-muted transition-transform group-open:rotate-45">
+                  +
+                </span>
+              </summary>
+              <div className="space-y-5 border-t border-line/[0.08] px-4 pb-5 pt-4">
+                {certifications.groups.map((g) => (
+                  <div key={g.theme}>
+                    <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-subtle">{g.theme}</p>
+                    <ul className="mt-2 space-y-1.5">
+                      {g.items.map((c) => (
+                        <li key={c.name} className="text-sm leading-snug text-fg/85">
+                          {c.name} <span className="text-muted">· {c.issuer}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            </details>
           </div>
           <div data-reveal>
             <h3 className="eyebrow">Languages</h3>

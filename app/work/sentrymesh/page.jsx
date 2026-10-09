@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { ArrowRight, Check, X } from 'lucide-react';
+import { ArrowRight, Check, FileText, X } from 'lucide-react';
 import { SplitWords } from '@/src/components/SplitWords';
 import { BackLink, CaseSection, Metrics, ToneBadge } from '@/src/components/case/CaseParts';
 import { GovernanceDiagram } from '@/src/components/case/GovernanceDiagram';
@@ -30,7 +30,7 @@ export default function SentryMeshPage() {
         <div className="page">
           <BackLink />
           <p className="eyebrow mt-10" data-reveal>
-            Case study · LLM security gateway
+            Case study · solo project · LLM security gateway
           </p>
           <h1 className="mt-5 font-display text-[clamp(3rem,10vw,7.5rem)] font-semibold leading-[0.92] tracking-tight">
             <SplitWords text="SentryMesh" />
@@ -48,6 +48,12 @@ export default function SentryMeshPage() {
               </li>
             ))}
           </ul>
+          <div className="mt-8" data-reveal>
+            <a href="/docs/sentrymesh-presentation.pdf" target="_blank" rel="noopener noreferrer" className="btn-ghost">
+              <FileText size={16} aria-hidden="true" /> Presentation (PDF, 7 slides)
+              <span className="sr-only">, opens in a new tab</span>
+            </a>
+          </div>
           <div className="mt-12">
             <Metrics items={sm.metrics} />
           </div>

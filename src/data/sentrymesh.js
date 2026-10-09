@@ -97,6 +97,6 @@ export const sentrymesh = {
     },
   ],
   stack: ['Python', 'FastAPI', 'Celery', 'Redis', 'Microsoft Presidio', 'spaCy', 'Open Policy Agent (Rego)', 'Ollama · Llama 3', 'Azure OpenAI'],
-  // TODO(jasser): public repository or demo link, and project context (solo? dates?).
-  links: [],
+  // Solo project (confirmed by Jasser). TODO(jasser): public repo or demo link, if one is published.
+  deck: '/docs/sentrymesh-presentation.pdf',
 };

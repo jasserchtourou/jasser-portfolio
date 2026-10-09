@@ -41,10 +41,10 @@ All copy lives in `src/data/`, so editing content never touches components:
 
 | File | Contents | Source |
 |---|---|---|
-| `profile.js` | pitch, hero stats, education, certifications, languages, links | CV |
+| `profile.js` | pitch, hero stats, education, 22 certifications, languages, links | CV + LinkedIn |
 | `experience.js` | roles and internships | CV + kamka role from LinkedIn |
 | `skills.js` | skills grouped as in the CV | CV |
-| `projects.js` | project cards | CV, repositories, live sites |
+| `projects.js` | 13 project cards | CV, LinkedIn projects, GitHub repos, YouTube demos, live sites |
 | `routeflow.js` | RouteFlow facts, features, lessons | RouteFlow repo (README, ARCHITECTURE.md, CONTEXT.md, test collection) |
 | `sentrymesh.js` | SentryMesh case study | SentryMesh presentation |
 
@@ -69,6 +69,7 @@ Rule: no invented facts or metrics. Missing information is marked `TODO(jasser)`
 ```bash
 node scripts/optimize-images.mjs <RouteFlowDir> <slidesPngDir>   # WebP conversions
 node scripts/capture-laforet.mjs                                  # La Forêt screenshots
+node scripts/capture-routeflow.mjs http://localhost:3000 <siteId>  # RouteFlow (docker compose up + seed first)
 node scripts/og-images.mjs                                        # public/og/*.png (1200×630)
 ```
 

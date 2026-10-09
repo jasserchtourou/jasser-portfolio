@@ -20,16 +20,40 @@ export const routeflowFacts = [
   { value: 384, label: 'dimension embeddings, HNSW index' },
 ];
 
+// Captured from the running app (docker compose, seeded demo data) with scripts/capture-routeflow.mjs.
 export const routeflowShots = [
   { id: 'dashboard', title: 'Dashboard', alt: 'RouteFlow dashboard: live KPIs, logistics flow, delayed shipments and live exception events' },
-  { id: 'warehouse-3d-night', title: '3D yard · night', alt: 'Isometric 3D digital twin of a warehouse yard at night with trucks at dock doors, forklifts and metrics panels' },
-  { id: 'routes', title: 'Route risk', alt: 'Routes ranked by explainable risk score with delayed status and late shipment counts' },
-  { id: 'shipments', title: 'Shipments', alt: 'Shipment list with filters and a side panel showing tracking history and open exceptions' },
+  { id: 'network-3d', title: '3D network', alt: '3D overview of seven warehouse sites with fill levels, plus a list of sites by utilisation and status' },
+  { id: 'warehouse-3d-night', title: '3D yard · night', alt: 'Isometric 3D digital twin of the Garbsen warehouse yard at night with trucks at dock doors, forklifts and metrics panels' },
+  { id: 'routes', title: 'Route risk', alt: 'Routes table with explainable risk scores, delayed status and late shipment counts' },
+  { id: 'shipments', title: 'Shipments', alt: 'Shipment list with status filters and a side panel showing tracking history and an open exception' },
   { id: 'tracking', title: 'Fleet map', alt: 'Fleet map of northern Germany with vehicle markers and a filterable vehicle list' },
+  { id: 'warehouse-3d-day', title: '3D yard · day', alt: 'The 3D warehouse yard in the daylight theme with trucks loading at the outbound docks' },
   { id: 'orders', title: 'Orders', alt: 'Orders table with status and priority filters, sortable columns and pagination' },
-  { id: 'warehouse-3d-day', title: '3D yard · day', alt: 'The 3D warehouse yard in the daylight theme' },
   { id: 'events', title: 'Event feed', alt: 'Network-wide tracking event feed with type and time-range filters' },
 ];
+
+export const routeflowMobile = [
+  { id: 'm-dashboard', alt: 'RouteFlow dashboard on a phone: KPI cards stacked in one column' },
+  { id: 'm-routes', alt: 'Routes list on a phone with risk meters' },
+  { id: 'm-shipments', alt: 'Shipments list on a phone with status filters' },
+];
+
+// A real run of POST /api/v1/assistant/ask against the seeded demo data (local Qwen3 4B via Ollama),
+// recorded 2026-10-09. Answer shortened only by trimming the shipment list.
+export const routeflowAssistantRun = {
+  question: 'Which shipments are delayed at the Garbsen warehouse, and what does our procedure say about escalating delays?',
+  toolCalls: [
+    { tool: 'list_delayed_shipments', args: '{ warehouse_code: "WH-GAR", limit: 10 }' },
+    { tool: 'search_knowledge_base', args: '{ query: "procedure for escalating delays in shipments" }' },
+  ],
+  answer: [
+    'The following shipments are delayed at the Garbsen warehouse (WH-GAR): SHP-2236 (259 min), SHP-2283 (252 min), SHP-2206 (239 min) … 7 shipments in total.',
+    'According to “Delayed Shipment Handling and Escalation” (knowledge/delayed-shipment-escalation.md): if the delay is over 120 minutes, the Operations manager must escalate and decide on recovery (transfer, second vehicle or rebooking). If the delivery promise will be missed, the customer’s account manager must be informed the same day.',
+  ],
+  usage: { requests: 2, toolCalls: 2, inputTokens: 3262, outputTokens: 308 },
+  model: 'qwen3:4b-instruct-2507-q4_K_M',
+};
 
 export const routeflowProblem = {
   title: 'Operations live in five places at once.',
@@ -65,6 +89,13 @@ export const routeflowFeatures = [
     title: 'Status changes only through events.',
     body: 'A shipment’s status moves strictly one step at a time via tracking events. Validate, apply and commit once, under a row lock, so two scanners can’t both pass the next-step check. The side panel shows the full history and open exceptions.',
     points: ['Filters, sort and open item live in the URL', 'Network-wide event feed refreshes every 10 s'],
+  },
+  {
+    shot: 'network-3d',
+    kicker: '3D network',
+    title: 'Seven sites at a glance.',
+    body: 'The warehouses page opens on a live 3D board of the whole network: every site shows its fill level and is coloured by status, with site count, in-transit count, average fill and alerts on top and a list of sites ranked by utilisation beside it.',
+    points: ['Disrupted and congested sites stand out by colour and label', 'One click opens a site’s 3D yard'],
   },
   {
     shot: 'warehouse-3d-night',

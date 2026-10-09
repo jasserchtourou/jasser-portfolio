@@ -56,13 +56,60 @@ export const education = [
   },
 ];
 
+// All 22 certifications from LinkedIn (supplied by Jasser), grouped by theme.
 export const certifications = {
-  // Jasser lists 22 certifications on LinkedIn; only the ones in the CV are named here.
-  // TODO(jasser): paste the full list of 22 certifications to show them all.
   total: 22,
   featured: [
-    { name: 'Building Transformer-Based NLP Applications', issuer: 'NVIDIA' },
-    { name: 'Microsoft Azure Fundamentals (AZ-900)', issuer: 'Microsoft', status: 'In preparation' },
+    { name: 'Building Transformer-Based Natural Language Processing Applications', issuer: 'NVIDIA', date: 'Apr 2024' },
+    { name: 'Natural Language Processing Specialization', issuer: 'DeepLearning.AI' },
+    { name: 'Microsoft Azure Fundamentals (AZ-900)', issuer: 'Microsoft', status: 'Exam in preparation · 4 Microsoft Azure courses completed' },
+  ],
+  groups: [
+    {
+      theme: 'AI, NLP & machine learning',
+      items: [
+        { name: 'Building Transformer-Based Natural Language Processing Applications', issuer: 'NVIDIA', date: 'Apr 2024' },
+        { name: 'Natural Language Processing Specialization', issuer: 'DeepLearning.AI' },
+        { name: 'Large Language Models (LLMs) Concepts', issuer: 'DataCamp' },
+        { name: 'Working with Hugging Face', issuer: 'DataCamp' },
+        { name: 'Image Modeling with Keras', issuer: 'DataCamp' },
+        { name: 'Python for Data Science, AI & Development', issuer: 'IBM' },
+      ],
+    },
+    {
+      theme: 'Cloud',
+      items: [
+        { name: 'Preparing for the AZ-900 Microsoft Azure Fundamentals Exam', issuer: 'Microsoft' },
+        { name: 'Microsoft Azure Services and Lifecycles', issuer: 'Microsoft' },
+        { name: 'Microsoft Azure Management Tools and Security Solutions', issuer: 'Microsoft' },
+        { name: 'Introduction to Microsoft Azure Cloud Services', issuer: 'Microsoft' },
+        { name: 'Understanding Cloud Computing', issuer: 'DataCamp' },
+      ],
+    },
+    {
+      theme: 'Data & statistics',
+      items: [
+        { name: 'Python Project for Data Engineering', issuer: 'IBM' },
+        { name: 'Databases and SQL for Data Science with Python', issuer: 'IBM' },
+        { name: 'Fundamentals of Database System', issuer: 'Coursera' },
+        { name: 'Data Science Math Skills', issuer: 'Duke University' },
+        { name: 'ARIMA Models in R', issuer: 'DataCamp' },
+        { name: 'Getting Started with R', issuer: 'Coursera' },
+      ],
+    },
+    {
+      theme: 'Software, systems & security',
+      items: [
+        { name: 'Foundations of Cybersecurity', issuer: 'Google' },
+        { name: 'Unix System Basics', issuer: 'Codio' },
+        { name: 'Angular for Front End Engineers', issuer: 'Codio' },
+        { name: 'C#', issuer: 'w3schools.com' },
+      ],
+    },
+    {
+      theme: 'Business',
+      items: [{ name: 'Business Analysis & Process Management', issuer: 'Coursera' }],
+    },
   ],
 };
 
