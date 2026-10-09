@@ -1,78 +1,84 @@
-# 🚀 Jasser Portfolio — AI Engineer Portfolio by Jasser Chtourou
+# Jasser Chtourou · AI Backend Engineer
 
-Welcome to **Jasser Portfolio**, an interactive 3D neural-universe portfolio that visualizes my AI engineering experience as a living system of interconnected nodes.
+Portfolio site: [jasser-portfolio-topaz.vercel.app](https://jasser-portfolio-topaz.vercel.app)
 
-## 🚀 Getting Started
+- `/`: hero, RouteFlow flagship, selected work, about, experience, skills, education, contact
+- `/work/routeflow`: flagship case study with a panoramic 3D ring and an animated architecture walkthrough
+- `/work/sentrymesh`: case study of the LLM security gateway
+- `/projects`: all projects
 
-### 1. Install dependencies
+## Stack
+
+Next.js 14 (App Router, static export of every page) · React 18 · Tailwind CSS 3 · anime.js 4 ·
+three.js + React Three Fiber 8 · lucide-react. Dev tooling: ESLint, Playwright, sharp, axe-core.
+
+## Run locally
+
 ```bash
 npm install
+npm run dev        # http://localhost:3000
+npm run build      # production build (must pass with no warnings)
+npm start          # serve the production build
+npm run lint
 ```
 
-### 2. Add Your Photo
-Your photo is already set up at: `/public/images/jasser-photo.png`
-- The photo will display automatically on the About page
-- If you want to update it, replace the file at the same location
-- Formats supported: JPG, PNG, or WebP
+Node 20 is used (Node ≥ 20.17 recommended for npm 11).
 
-### 3. (Optional) Add Local Video
-If you want the Plug&Plai video to play locally instead of LinkedIn:
-- Download the video from LinkedIn
-- Save as: `/public/videos/plug-plai-demo.mp4`
-- The site will automatically use the local video if available
+## Deploy
 
-### 4. Run development server
+The site is a Vercel project (`vercel.json`).
+
+- Push the `portfolio-v2` branch → Vercel builds a **preview URL** for review.
+- Merge into `main` → Vercel deploys **production**.
+- Without Git integration: `npx vercel` (preview) / `npx vercel --prod`.
+
+If the production domain changes, update `SITE_URL` in `src/data/profile.js` (used for canonical
+URLs, Open Graph, sitemap and JSON-LD).
+
+## Content
+
+All copy lives in `src/data/`, so editing content never touches components:
+
+| File | Contents | Source |
+|---|---|---|
+| `profile.js` | pitch, hero stats, education, certifications, languages, links | CV |
+| `experience.js` | roles and internships | CV + kamka role from LinkedIn |
+| `skills.js` | skills grouped as in the CV | CV |
+| `projects.js` | project cards | CV, repositories, live sites |
+| `routeflow.js` | RouteFlow facts, features, lessons | RouteFlow repo (README, ARCHITECTURE.md, CONTEXT.md, test collection) |
+| `sentrymesh.js` | SentryMesh case study | SentryMesh presentation |
+
+Rule: no invented facts or metrics. Missing information is marked `TODO(jasser)` in the data files.
+
+## Motion, 3D and fallbacks
+
+- **Reveals**: one `RevealController` observes `data-reveal`, `data-reveal-words` and
+  `data-count`, and loads anime.js lazily (it is not in the initial bundle). The hero entrance is
+  CSS-only, so the largest text never waits for JavaScript.
+- **RouteFlow ring**: `src/components/routeflow/PanoramaScene.jsx` (R3F) is a separate chunk,
+  requested only on desktops with a fine pointer, WebGL, ≥ 4 cores / 4 GB and no data saver. It
+  lowers its pixel ratio if frames are slow and hands over to the 2D strip if the device still
+  can't hold ~24 fps. Rendering stops while the hero is off-screen.
+- **Fallbacks**: mobile, low-power, no-WebGL and `prefers-reduced-motion` visitors get a swipeable
+  2D screenshot strip. Under reduced motion every animation is replaced by its final state, and the
+  architecture walkthroughs become numbered lists. Add `?no3d` to the URL to force the 2D version.
+- Walkthroughs have pause buttons and pause when scrolled off-screen.
+
+## Assets
+
 ```bash
-npm run dev
+node scripts/optimize-images.mjs <RouteFlowDir> <slidesPngDir>   # WebP conversions
+node scripts/capture-laforet.mjs                                  # La Forêt screenshots
+node scripts/og-images.mjs                                        # public/og/*.png (1200×630)
 ```
 
-### 5. Build for production
+## QA scripts (run against `npm start` on port 3200)
+
 ```bash
-npm run build
+node scripts/qa-screens.mjs http://localhost:3200 <outDir> / /projects /work/sentrymesh   # 375/768/1440, overflow, console
+node scripts/qa-routeflow.mjs http://localhost:3200 <outDir>    # 3D ring, drag, 2D + reduced fallbacks
+node scripts/qa-a11y-perf.mjs http://localhost:3200              # axe WCAG 2.1 AA, keyboard order, frame times
+GPU=1 node scripts/qa-fps.mjs http://localhost:3200 /work/routeflow
 ```
 
-Open [http://localhost:3000](http://localhost:3000) to view the portfolio.
-
-## 🛠 Tech Stack
-
-- **Next.js 14** (App Router)
-- **React Three Fiber** (3D)
-- **Three.js**
-- **Framer Motion**
-- **TailwindCSS**
-- **Zustand** (State Management)
-
-## 📁 Project Structure
-
-```
-/app                 # Next.js pages
-  /about            # About page
-  /landing          # Landing page
-  page.jsx          # Main 3D universe page
-/src
-  /components        # React components
-    - NeuralGraph   # Main 3D graph component
-    - Node          # 3D node component
-    - Edge          # 3D edge/connection component
-    - ProjectPanel  # Project details panel
-    - SidebarPanel  # Core node panel
-    - NavBar        # Navigation bar
-  /data             # JSON data files
-    - projects.json
-    - experience.json
-    - skills.json
-  /lib              # Utilities
-    - graphLayout.js
-    - colorMap.js
-  /store            # State management
-    - useStore.js
-```
-
-## 📬 Contact
-
-**Jasser Chtourou**  
-AI Engineer (RAG, NLP, CV, Voice AI)  
-📧 jasser278@gmail.com  
-🔗 LinkedIn: linkedin.com/in/jasser-chtourou  
-🐙 GitHub: github.com/jasserchtourou
-
+On Git Bash for Windows, prefix with `MSYS_NO_PATHCONV=1` so paths starting with `/` are not rewritten.

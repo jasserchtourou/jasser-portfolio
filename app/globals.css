@@ -10,7 +10,7 @@
   --line: 255 255 255;
   --fg: 244 244 245;
   --muted: 168 168 178;
-  --subtle: 120 120 132;
+  --subtle: 138 138 150;
   --accent: 255 45 85;
   --accent-soft: 255 110 130;
   /* Darker red for filled buttons: white text on it passes WCAG AA (≈5.2:1). */

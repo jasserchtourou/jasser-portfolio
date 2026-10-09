@@ -48,6 +48,10 @@ export function Panorama({ shots, children }) {
         introRef.current.style.opacity = String(o);
         introRef.current.style.transform = `translateY(${-p * 120}px)`;
         introRef.current.style.visibility = o === 0 ? 'hidden' : 'visible';
+      } else if (introRef.current) {
+        introRef.current.style.opacity = '';
+        introRef.current.style.transform = '';
+        introRef.current.style.visibility = '';
       }
       if (mode === '2d' && stripRef.current) {
         const strip = stripRef.current;
@@ -169,6 +173,10 @@ export function Panorama({ shots, children }) {
               active={inView}
               onActive={setActive}
               onReady={() => setReady(true)}
+              onSlow={() => {
+                setReady(false);
+                setMode('2d');
+              }}
             />
             <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_45%,rgb(var(--ink))_100%)]" />
           </div>
@@ -197,6 +205,7 @@ export function Panorama({ shots, children }) {
               ref={stripRef}
               onScroll={onStripScroll}
               aria-label="RouteFlow screenshots"
+              tabIndex={tracked ? undefined : 0}
               className={`no-scrollbar flex gap-4 px-4 sm:px-6 lg:px-10 ${
                 tracked ? 'will-change-transform' : 'snap-x snap-mandatory overflow-x-auto pb-4'
               }`}

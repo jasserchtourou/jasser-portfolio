@@ -28,7 +28,7 @@ export const metadata = {
     description,
     images: [{ url: '/og/routeflow.png', width: 1200, height: 630, alt: 'RouteFlow case study' }],
   },
-  twitter: { images: ['/og/routeflow.png'] },
+  twitter: { card: 'summary_large_image', title: 'RouteFlow: logistics platform with an agentic RAG assistant', description, images: ['/og/routeflow.png'] },
 };
 
 const shotById = Object.fromEntries(routeflowShots.map((s) => [s.id, s]));
@@ -232,7 +232,12 @@ export default function RouteFlowPage() {
                 </a>
               </div>
             </div>
-            <pre className="card overflow-x-auto p-5 font-mono text-[13px] leading-relaxed text-fg/85" data-reveal>
+            <pre
+              tabIndex={0}
+              aria-label="Commands to run RouteFlow locally"
+              className="card overflow-x-auto p-5 font-mono text-[13px] leading-relaxed text-fg/85"
+              data-reveal
+            >
               <code>
                 <span className="text-subtle"># database + API + web app, migrations run automatically</span>
                 {'\n'}cp .env.example .env

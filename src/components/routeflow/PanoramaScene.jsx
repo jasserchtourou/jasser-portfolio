@@ -28,7 +28,7 @@ function Panel({ url, index, count, height }) {
   return (
     <group>
       <mesh userData={{ index }}>
-        <cylinderGeometry args={[RADIUS, RADIUS, height, 48, 1, true, thetaStart, length]} />
+        <cylinderGeometry args={[RADIUS, RADIUS, height, 32, 1, true, thetaStart, length]} />
         <meshStandardMaterial
           map={texture}
           side={THREE.BackSide}
@@ -43,7 +43,7 @@ function Panel({ url, index, count, height }) {
       {/* Thin glowing rails above and below each panel. */}
       {[height / 2 + 0.06, -height / 2 - 0.06].map((y) => (
         <mesh key={y} position={[0, y, 0]}>
-          <cylinderGeometry args={[RADIUS - 0.01, RADIUS - 0.01, 0.012, 48, 1, true, thetaStart, length]} />
+          <cylinderGeometry args={[RADIUS - 0.01, RADIUS - 0.01, 0.012, 32, 1, true, thetaStart, length]} />
           <meshBasicMaterial color="#60a5fa" side={THREE.BackSide} transparent opacity={0.55} toneMapped={false} />
         </mesh>
       ))}
@@ -100,8 +100,36 @@ function Dust() {
 
 // Ring rotation = scroll progress + drag offset, eased every frame. Camera sways with the pointer
 // for parallax. Reports which panel faces the camera so the HTML overlay can name it.
-function Ring({ shots, control, onActive, onReady }) {
+// Adaptive quality: after a warm-up, drop the pixel ratio if frames are slow; if the device
+// still can't hold ~24 fps at 1×, hand over to the 2D strip.
+function useFrameBudget(onSlow) {
+  const acc = useRef({ t: 0, n: 0, warm: 1.5, degraded: false });
+  useFrame((state, dt) => {
+    const a = acc.current;
+    if (dt > 0.25) return; // tab was hidden or the page was busy loading: not a rendering cost
+    if (a.warm > 0) {
+      a.warm -= dt;
+      return;
+    }
+    a.t += dt;
+    a.n += 1;
+    if (a.t < 2) return;
+    const avg = a.t / a.n;
+    a.t = 0;
+    a.n = 0;
+    if (avg > 1 / 40 && !a.degraded) {
+      a.degraded = true;
+      state.setDpr(1);
+      a.warm = 0.5;
+    } else if (avg > 1 / 24 && a.degraded) {
+      onSlow?.();
+    }
+  });
+}
+
+function Ring({ shots, control, onActive, onReady, onSlow }) {
   const ring = useRef();
+  useFrameBudget(onSlow);
   // Rendered only after every texture resolved (Suspense), so this means "ready to show".
   useEffect(() => {
     onReady?.();
@@ -151,11 +179,11 @@ function Ring({ shots, control, onActive, onReady }) {
   );
 }
 
-export default function PanoramaScene({ shots, control, onActive, active, onReady }) {
+export default function PanoramaScene({ shots, control, onActive, active, onReady, onSlow }) {
   return (
     <Canvas
       className="!absolute inset-0"
-      dpr={[1, 1.75]}
+      dpr={[1, 1.5]}
       frameloop={active ? 'always' : 'never'}
       camera={{ position: [0, 0.15, -1], fov: 52, near: 0.1, far: 30 }}
       gl={{ antialias: true, powerPreference: 'high-performance', alpha: false }}
@@ -170,7 +198,7 @@ export default function PanoramaScene({ shots, control, onActive, active, onRead
       <pointLight position={[0, 1.5, -2]} intensity={14} distance={9} color="#9cc3ff" />
       <pointLight position={[0, -2, 3]} intensity={10} distance={10} color="#ff2d55" />
       <Suspense fallback={null}>
-        <Ring shots={shots} control={control} onActive={onActive} onReady={onReady} />
+        <Ring shots={shots} control={control} onActive={onActive} onReady={onReady} onSlow={onSlow} />
       </Suspense>
       <Dust />
     </Canvas>

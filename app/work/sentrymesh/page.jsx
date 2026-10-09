@@ -18,7 +18,7 @@ export const metadata = {
     description,
     images: [{ url: '/og/sentrymesh.png', width: 1200, height: 630, alt: 'SentryMesh case study' }],
   },
-  twitter: { images: ['/og/sentrymesh.png'] },
+  twitter: { card: 'summary_large_image', title: 'SentryMesh: AI governance by design', description, images: ['/og/sentrymesh.png'] },
 };
 
 export default function SentryMeshPage() {

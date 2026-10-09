@@ -33,7 +33,7 @@ function Links({ project }) {
   );
 }
 
-function Media({ project, sizes }) {
+function Media({ project, sizes, priority }) {
   if (project.video) {
     return (
       <div className="relative aspect-video overflow-hidden rounded-xl border border-line/[0.08] bg-black">
@@ -67,6 +67,7 @@ function Media({ project, sizes }) {
           alt={project.image.alt}
           fill
           sizes={sizes}
+          priority={priority}
           className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.03]"
         />
       </div>
@@ -75,7 +76,7 @@ function Media({ project, sizes }) {
   return null;
 }
 
-export function ProjectCard({ project, wide = false, sizes = '(min-width: 1024px) 40vw, 100vw' }) {
+export function ProjectCard({ project, wide = false, priority = false, sizes = '(min-width: 1024px) 40vw, 100vw' }) {
   return (
     <article
       className={`card group flex h-full flex-col p-4 sm:p-5 ${
@@ -83,7 +84,7 @@ export function ProjectCard({ project, wide = false, sizes = '(min-width: 1024px
       }`}
       data-reveal
     >
-      <Media project={project} sizes={sizes} />
+      <Media project={project} sizes={sizes} priority={priority} />
       <div className={`flex flex-1 flex-col px-1 pt-5 ${wide ? 'lg:pt-0' : ''}`}>
         <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-subtle">{project.kind}</p>
         <h3 className="mt-2 font-display text-2xl font-semibold tracking-tight">{project.title}</h3>
