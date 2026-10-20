@@ -1,8 +1,5 @@
 import './globals.css';
 import { Inter, Space_Grotesk, JetBrains_Mono } from 'next/font/google';
-import { SiteHeader } from '@/src/components/SiteHeader';
-import { SiteFooter } from '@/src/components/SiteFooter';
-import { RevealController } from '@/src/components/RevealController';
 import { SITE_URL, profile } from '@/src/data/profile';
 
 const sans = Inter({ subsets: ['latin'], variable: '--font-sans', display: 'swap' });
@@ -55,18 +52,7 @@ export default function RootLayout({ children }) {
       <head>
         <script dangerouslySetInnerHTML={{ __html: revealBootstrap }} />
       </head>
-      <body>
-        <a
-          href="#main"
-          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-fg focus:px-4 focus:py-2 focus:text-ink"
-        >
-          Skip to content
-        </a>
-        <SiteHeader />
-        <main id="main">{children}</main>
-        <SiteFooter />
-        <RevealController />
-      </body>
+      <body>{children}</body>
     </html>
   );
 }
