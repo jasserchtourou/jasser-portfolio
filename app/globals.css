@@ -83,6 +83,20 @@
   .link-underline:focus-visible {
     background-size: 100% 1px;
   }
+
+  /* Back office (/admin) */
+  .input {
+    @apply w-full rounded-lg border border-line/15 bg-ink px-3 py-2 text-sm text-fg placeholder:text-subtle transition-colors hover:border-line/30 focus:border-flow/70 focus:outline-none;
+  }
+  .label {
+    @apply mb-1.5 block text-xs font-medium text-muted;
+  }
+  .btn-sm {
+    @apply inline-flex min-h-[36px] items-center gap-1.5 rounded-lg border border-line/15 px-3 text-sm text-fg transition-colors hover:border-line/40 hover:bg-white/[0.04] disabled:cursor-not-allowed disabled:opacity-40;
+  }
+  .btn-icon {
+    @apply inline-flex h-9 w-9 items-center justify-center rounded-lg text-muted transition-colors hover:bg-white/[0.06] hover:text-fg disabled:cursor-not-allowed disabled:opacity-30;
+  }
 }
 
 /* Grain + vignette backdrop, pure CSS (no images). */

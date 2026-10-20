@@ -37,18 +37,81 @@ URLs, Open Graph, sitemap and JSON-LD).
 
 ## Content
 
-All copy lives in `src/data/`, so editing content never touches components:
+Editable copy lives in `content/*.json` and is managed from the **back office** (`/admin`).
+`src/data/*.js` re-export it, so components never change when content does:
 
-| File | Contents | Source |
+| File | Contents | Edited in |
 |---|---|---|
-| `profile.js` | pitch, hero stats, education, 22 certifications, languages, links | CV + LinkedIn |
-| `experience.js` | roles and internships | CV + kamka role from LinkedIn |
-| `skills.js` | skills grouped as in the CV | CV |
-| `projects.js` | 13 project cards | CV, LinkedIn projects, GitHub repos, YouTube demos, live sites |
-| `routeflow.js` | RouteFlow facts, features, lessons | RouteFlow repo (README, ARCHITECTURE.md, CONTEXT.md, test collection) |
-| `sentrymesh.js` | SentryMesh case study | SentryMesh presentation |
+| `content/profile.json` | pitch, hero stats, education, certifications, languages, links | `/admin/profile` |
+| `content/experience.json` | roles and internships | `/admin/experience` |
+| `content/skills.json` | skills grouped as in the CV | `/admin/skills` |
+| `content/projects.json` | project cards (order, home-page flag, media, links) | `/admin/projects` |
+| `src/data/routeflow.js` | RouteFlow facts, features, lessons | code |
+| `src/data/sentrymesh.js` | SentryMesh case study | code |
 
-Rule: no invented facts or metrics. Missing information is marked `TODO(jasser)` in the data files.
+Rule: no invented facts or metrics.
+
+## Back office (`/admin`)
+
+Password-protected admin to add, edit, reorder and delete projects, experience, skills and profile
+data, upload images, and see visitor analytics.
+
+- **Auth:** one password (`ADMIN_PASSWORD`), a signed, `httpOnly`, `SameSite=Strict` session cookie
+  (HMAC with `ADMIN_SECRET`, 12 h), checked in `middleware.js` for every `/admin` and `/api/admin`
+  route. Failed logins are rate-limited; admin pages are `noindex` and never tracked.
+- **Saving:** every save is validated server-side (`src/lib/admin/validate.js`).
+  - Locally (no GitHub variables) it writes `content/*.json` directly and the dev server hot-reloads.
+  - In production it **commits** the JSON (and uploaded images) to GitHub through the Contents API;
+    Vercel sees the commit and redeploys (~1 min). The site stays fully static and every edit is in
+    git history, so any change can be reverted. Concurrent edits are caught (409) instead of lost.
+
+Environment variables (copy `.env.example` to `.env.local` for local use, set them in Vercel for production):
+
+| Variable | Purpose |
+|---|---|
+| `ADMIN_PASSWORD` | back-office password (use a long, unique one) |
+| `ADMIN_SECRET` | ≥ 32 random chars for signing sessions: `node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"` |
+| `GITHUB_TOKEN` | fine-grained token, **this repository only**, permission *Contents: Read and write* |
+| `GITHUB_REPO` / `GITHUB_BRANCH` | e.g. `jasserchtourou/jasser-portfolio` / `main` (the branch Vercel deploys) |
+
+## Analytics (Umami)
+
+Visitor tracking uses [Umami](https://github.com/umami-software/umami): open source, **cookieless**,
+no personal data stored, GDPR-compliant without a cookie banner. The script loads only on the public
+site (`app/(site)/layout.jsx`), only when configured, and only counts the production domain
+(`data-domains`), so local dev and preview deployments don't skew the numbers. Clicks on the email
+button and external links (LinkedIn, GitHub, demos) are recorded as events
+(`src/components/OutboundTracker.jsx`). `/admin/analytics` shows live visitors, visitors, visits,
+page views, bounce rate, visit time, top pages, referrers, countries, devices, browsers, OS and clicks.
+
+**1. Get an Umami instance** (pick one)
+
+- *Umami Cloud* (simplest, free Hobby plan): sign up at umami.is and add the website. Hobby has no
+  API keys, so turn on its **Share URL** (Websites → Edit → Share URL) and use that for the stats.
+- *Self-hosted* (full data ownership): deploy Umami on Vercel or Docker with a free Postgres
+  (e.g. Neon/Supabase), following the Umami docs. Change the default `admin` password immediately,
+  then create a **separate view-only user** for the API.
+
+**2. Add the website in Umami** with the production domain and copy its *Website ID*.
+
+**3. Set the variables**
+
+| Variable | Value |
+|---|---|
+| `NEXT_PUBLIC_UMAMI_URL` | where `script.js` is served: your Umami URL, or `https://cloud.umami.is` |
+| `NEXT_PUBLIC_UMAMI_WEBSITE_ID` | the Website ID |
+| `NEXT_PUBLIC_UMAMI_DOMAINS` | optional, comma-separated hosts to count (defaults to the `SITE_URL` host) |
+| `UMAMI_SHARE_URL` | the website's share link, e.g. `https://cloud.umami.is/share/<id>/…`; works on every plan; replaces `UMAMI_API_URL` and the credentials below |
+| `UMAMI_SHARE_API_URL` | optional; the API behind the share link. Default: Umami Cloud's EU/US gateways (`https://gateway-eu.umami.is/api`), or `<origin>/api` for self-hosted |
+| `UMAMI_API_URL` | self-hosted: `https://<umami>/api` · Cloud: `https://api.umami.is/v1` |
+| `UMAMI_USERNAME` / `UMAMI_PASSWORD` | self-hosted: the view-only user (no 2FA) |
+| `UMAMI_API_KEY` | Cloud paid plans: the API key (instead of username/password) |
+| `UMAMI_DASHBOARD_URL` | optional link to the full Umami dashboard |
+
+API credentials are server-only (no `NEXT_PUBLIC_`): the browser talks to `/api/admin/analytics`,
+never to Umami directly. With `UMAMI_SHARE_URL`, the server gets a read-only share token from the
+link (the same one Umami's share page uses); if that ever fails, the page embeds the share dashboard
+instead. Note that a share link is public: anyone who has it can see the stats, so don't post it. Redeploy after changing `NEXT_PUBLIC_*` variables, since they are inlined at build time.
 
 ## Motion, 3D and fallbacks
 
@@ -71,7 +134,7 @@ node scripts/optimize-images.mjs <RouteFlowDir> <slidesPngDir>   # WebP conversi
 node scripts/capture-laforet.mjs                                  # La Forêt screenshots
 node scripts/capture-routeflow.mjs http://localhost:3000 <siteId>  # RouteFlow (docker compose up + seed first)
 node scripts/og-images.mjs                                        # public/og/*.png (1200×630)
-node scripts/portfolio-pdf.mjs <out.pdf>                          # 10-page PDF portfolio from src/data
+node scripts/portfolio-pdf.mjs <out.pdf>                          # 10-page PDF portfolio from content/ + src/data
 ```
 
 ## QA scripts (run against `npm start` on port 3200)

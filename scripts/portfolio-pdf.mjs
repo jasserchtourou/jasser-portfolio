@@ -8,15 +8,19 @@ import sharp from 'sharp';
 const root = process.cwd();
 const outFile = path.resolve(process.argv[2] ?? 'Jasser_Chtourou_Portfolio.pdf');
 
-// The data files are dependency-free ES modules; load them without a bundler.
+// The case-study data files are dependency-free ES modules; load them without a bundler.
 const load = async (file) => {
   const src = await fs.readFile(path.join(root, 'src/data', file), 'utf8');
   return import(`data:text/javascript;base64,${Buffer.from(src).toString('base64')}`);
 };
-const { profile, education, certifications, languages, SITE_URL } = await load('profile.js');
-const { experience, internships } = await load('experience.js');
-const { skills } = await load('skills.js');
-const { projects } = await load('projects.js');
+// Content edited from the back office is plain JSON in content/.
+const json = async (file) => JSON.parse(await fs.readFile(path.join(root, 'content', file), 'utf8'));
+const SITE_URL = (await fs.readFile(path.join(root, 'src/data/profile.js'), 'utf8')).match(/SITE_URL = '([^']+)'/)[1];
+const { profile, education, languages, certifications: certs } = await json('profile.json');
+const certifications = { ...certs, total: certs.groups.reduce((n, g) => n + g.items.length, 0) };
+const { experience, internships } = await json('experience.json');
+const { skills } = await json('skills.json');
+const { projects } = await json('projects.json');
 const rf = await load('routeflow.js');
 const { sentrymesh: sm } = await load('sentrymesh.js');
 
